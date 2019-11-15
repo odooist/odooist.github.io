@@ -10,9 +10,35 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'philosopher';
+    src: url('../fonts/Philosopher-Regular.ttf') format('truetype'),
+}
+@font-face {
+    font-family: 'philosopher';
+    src: url('../fonts/Philosopher-Bold.ttf') format('truetype'),
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'philosopher';
+    src: url('../fonts/Philosopher-Italic.ttf') format('truetype'),
+    font-style: italic;
+}
+@font-face {
+    font-family: 'philosopher';
+    src: url('../fonts/Philosopher-Bolditalic.ttf') format('truetype'),
+    font-weight: bold;
+    font-style: italic;
+}
+
 h1, h2, h3, h4 {
-    font-family: "ralewaymedium";
+    font-family: "philosopher";
     color: #704e68;
+}
+
+p {
+    font-family: "philosopher";
+    font-size: 1.2em;
 }
 
 h2 {
