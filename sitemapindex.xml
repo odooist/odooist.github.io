@@ -27,7 +27,7 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/galleries/rss.xml</loc>
-  <lastmod>2019-11-15T20:43:00Z</lastmod>
+  <lastmod>2019-11-15T20:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/rss.xml</loc>
@@ -55,7 +55,7 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/galleries/rss.xml</loc>
-  <lastmod>2019-11-15T20:43:00Z</lastmod>
+  <lastmod>2019-11-15T20:53:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/rss.xml</loc>
@@ -63,6 +63,6 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/sitemap.xml</loc>
-  <lastmod>2019-11-15T20:43:00Z</lastmod>
+  <lastmod>2019-11-15T20:53:00Z</lastmod>
  </sitemap>
 </sitemapindex>
