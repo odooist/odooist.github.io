@@ -163,7 +163,7 @@ THEME="material-theme"
 
 # Primary color of your theme. This will be used to customize your theme.
 # Must be a HEX value.
-THEME_COLOR = '#5670d4'
+THEME_COLOR = '#990099'
 
 # Theme configuration. Fully theme-dependent. (translatable)
 # Examples below are for bootblog4.
@@ -1350,7 +1350,9 @@ WARN_ABOUT_TAG_METADATA = False
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {}
+GLOBAL_CONTEXT = {
+    'header_color': 'custom',
+}
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be
