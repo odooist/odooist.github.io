@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Odoo tips &amp; tricks">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Odoo Open Treasures</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="ru/rss.xml">
+<link rel="canonical" href="http://odooist.com/blog/">
+<!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]--><link rel="prefetch" href="posts/ir-attachment-clean-up/" type="text/html">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar  header-panel shadow-z-3" role="navigation"><div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-3">
+            <h1 class="title-blog">
+                <a href="http://odooist.com/blog/">
+                        <img src="images/open-treasure.jpg" alt="Odoo Open Treasures" id="logo"><span id="blog-title">Odoo Open Treasures</span>
+                    </a>
+            </h1>
+          </div>
+          <div class="col-xs-9">
+            <a id="hamburger" class="btn btn-raised" href="javascript:void(0);" onclick="menuToggle();">☰</a>
+          </div>
+        </div>
+      </div>
+<!-- /.container-fluid -->
+</nav><div class="container-fluid main" id="content" role="main">
+        <div class="row">
+            <nav class="col-xs-12 col-sm-3 menu"><ul>
+<li class="withripple"><a href="archive.html">Archive</a></li>
+                <li class="withripple"><a href="categories/">Tags</a></li>
+                <li class="withripple"><a href="rss.xml">RSS feed</a></li>
+
+                    
+                </ul>
+<ul>
+<li>            </li>
+<li><a href="http://odooist.com/blog/ru/" rel="alternate" hreflang="ru">Русский</a></li>
+
+                    
+                </ul></nav><div class="posts-material col-xs-12 col-sm-9">
+                <div class="col-xs-12 col-md-11 content-material">
+
+    <div class="postindex well post-material ">
+    
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/ir-attachment-clean-up/" class="u-url">ir.attachment clean up</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
+                        <i class="mdi-action-face-unlock"></i>
+                    Odooist
+                </span>
+                <span class="dateline"><a href="posts/ir-attachment-clean-up/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-15T05:57:50+01:00" title="2019-11-15 05:57">2019-11-15 05:57</time></a></span>
+                    <span class="commentline">        
+</span>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
+<p>You know that by default Odoo uses local file system storage for sessions and
+attachments.</p>
+<p>And sometimes when you delete</p>
+<pre class="code python"><a name="rest_code_c07aea82079544b5b178420dbe899022-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-2"></a><span class="kn">import</span> <span class="nn">filetype</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-3"></a><span class="kn">import</span> <span class="nn">os</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-4"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-5"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-6"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'picture1'</span><span class="p">,</span> <span class="s1">'picture1_small'</span><span class="p">,</span> <span class="s1">'picture2'</span><span class="p">,</span> <span class="s1">'picture2_small'</span><span class="p">,</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-7"></a>         <span class="s1">'picture3'</span><span class="p">,</span> <span class="s1">'picture3_small'</span><span class="p">]</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-8"></a><span class="n">root</span> <span class="o">=</span> <span class="s1">'/var/lib/odoo/filestore/barrier'</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-9"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-10"></a><span class="n">records</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">'ir.attachment'</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([(</span><span class="s1">'res_field'</span><span class="p">,</span> <span class="s1">'!='</span><span class="p">,</span> <span class="bp">False</span><span class="p">)])</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-11"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-12"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-13"></a><span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-14"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-15"></a>    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-16"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-17"></a>        <span class="n">limit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1000</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-18"></a>        <span class="k">if</span> <span class="n">limit</span> <span class="o">&gt;</span> <span class="n">count</span><span class="p">:</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-19"></a>            <span class="n">limit</span> <span class="o">=</span> <span class="n">count</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-20"></a>        <span class="n">data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-21"></a>            <span class="n">records</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">limit</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">'store_fname'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'create_date'</span><span class="p">]))</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-22"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-23"></a>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-24"></a>        <span class="n">res</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s1">'store_fname'</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-25"></a>                                    <span class="s1">'create_date'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'create_date'</span><span class="p">]}</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-26"></a>    <span class="k">return</span> <span class="n">data</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-27"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-28"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-29"></a>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-30"></a><span class="k">def</span> <span class="nf">c</span><span class="p">():</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-31"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-32"></a>    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-33"></a>        <span class="n">subfolder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-34"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">subfolder</span><span class="p">):</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-35"></a>            <span class="n">f_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subfolder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-36"></a>            <span class="n">f_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-37"></a>            <span class="n">f_stat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-38"></a>            <span class="n">m_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">f_stat</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-39"></a>            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-40"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">m_dt</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-41"></a>                <span class="c1">#print('Checking name: ', f_name)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-42"></a>                <span class="k">if</span> <span class="n">f_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data2</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-43"></a>                    <span class="k">print</span><span class="p">(</span><span class="s1">'File not found '</span><span class="p">,</span> <span class="n">f_name</span><span class="p">)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-44"></a>                <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-45"></a>                    <span class="k">pass</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-46"></a>                    <span class="c1">#print('Found file name: ', f_name)</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-47"></a>            <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-48"></a>                <span class="k">pass</span>
+<a name="rest_code_c07aea82079544b5b178420dbe899022-49"></a>                <span class="c1">#print('Ommit fresh file ', f_name)</span>
+</pre>
+</div>
+        </div>
+        </article>
+</div>
+
+        
+
+
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-fab btn-raised btn-material-green btn-footer" data-toggle="modal" data-target="#footer-dialog">
+            <i class="mdi-communication-message"></i>
+        </button>
+        <div id="footer-dialog" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Odoo Open Treasures credits</h4>
+              </div>
+              <div class="modal-body">
+                    Contents © 2019         <a href="mailto:odooist@gmail.com">Odooist</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+                    
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="source-button">
+        </div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>
+
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+            });
+
+            $(window).on("resize", function() {
+                if($(window).width() > 767) {
+                  $("html, body").height($(window).height());
+                  $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight() - 76 );
+                  $(".posts-material").height($(window).height());
+                } else {
+                  $("html, body").css('height', '');
+                  $(".main, .menu").css('height', '');
+                  $(".posts-material").css('height', '');
+                }
+            }).trigger("resize");
+
+            function menuToggle() {
+                $("nav.menu, ul").toggleClass('responsive', '');
+            }
+        </script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>
