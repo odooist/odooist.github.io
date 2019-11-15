@@ -1,4 +1,4 @@
-Sitemap: http://odooist.com/blog/sitemapindex.xml
+Sitemap: http://blog.odooist.com/sitemapindex.xml
 
 User-Agent: *
-Host: odooist.com
+Host: blog.odooist.com

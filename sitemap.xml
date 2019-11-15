@@ -6,96 +6,80 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>http://odooist.com/blog/</loc>
+  <loc>http://blog.odooist.com/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/2019/</loc>
+  <loc>http://blog.odooist.com/2019/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/archive.html</loc>
-  <lastmod>2019-11-15T12:00:00Z</lastmod>
+  <loc>http://blog.odooist.com/archive.html</loc>
+  <lastmod>2019-11-15T13:31:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/categories/</loc>
+  <loc>http://blog.odooist.com/categories/</loc>
+  <lastmod>2019-11-15T12:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/categories/110/</loc>
   <lastmod>2019-11-15T11:59:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/categories/110/</loc>
-  <lastmod>2019-11-15T11:59:00Z</lastmod>
- </url>
- <url>
-  <loc>http://odooist.com/blog/categories/120/</loc>
+  <loc>http://blog.odooist.com/categories/120/</loc>
   <lastmod>2019-11-15T11:35:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/categories/irattachment/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
- </url>
- <url>
-  <loc>http://odooist.com/blog/categories/maintainance/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
- </url>
- <url>
-  <loc>http://odooist.com/blog/categories/views/</loc>
+  <loc>http://blog.odooist.com/categories/views/</loc>
   <lastmod>2019-11-15T11:35:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/galleries/</loc>
+  <loc>http://blog.odooist.com/galleries/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/listings/</loc>
+  <loc>http://blog.odooist.com/listings/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/posts/hiding-entire-tree-column-with-column_invisible/</loc>
+  <loc>http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/</loc>
   <lastmod>2019-11-15T11:16:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/</loc>
+  <loc>http://blog.odooist.com/ru/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/2019/</loc>
+  <loc>http://blog.odooist.com/ru/2019/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/archive.html</loc>
-  <lastmod>2019-11-15T12:00:00Z</lastmod>
+  <loc>http://blog.odooist.com/ru/archive.html</loc>
+  <lastmod>2019-11-15T13:31:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/categories/</loc>
+  <loc>http://blog.odooist.com/ru/categories/</loc>
+  <lastmod>2019-11-15T12:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/categories/110/</loc>
   <lastmod>2019-11-15T11:59:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/categories/110/</loc>
-  <lastmod>2019-11-15T11:59:00Z</lastmod>
- </url>
- <url>
-  <loc>http://odooist.com/blog/ru/categories/120/</loc>
+  <loc>http://blog.odooist.com/ru/categories/120/</loc>
   <lastmod>2019-11-15T11:35:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/categories/irattachment/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
- </url>
- <url>
-  <loc>http://odooist.com/blog/ru/categories/maintainance/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
- </url>
- <url>
-  <loc>http://odooist.com/blog/ru/categories/views/</loc>
+  <loc>http://blog.odooist.com/ru/categories/views/</loc>
   <lastmod>2019-11-15T11:35:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/galleries/</loc>
+  <loc>http://blog.odooist.com/ru/galleries/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/posts/hiding-entire-tree-column-with-column_invisible/</loc>
+  <loc>http://blog.odooist.com/ru/posts/hiding-entire-tree-column-with-column_invisible/</loc>
   <lastmod>2019-11-15T11:16:00Z</lastmod>
-  <xhtml:link rel="alternate" hreflang="en" href="http://odooist.com/blog/posts/hiding-entire-tree-column-with-column_invisible/" />
+  <xhtml:link rel="alternate" hreflang="en" href="http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/" />
  </url>
 </urlset>
