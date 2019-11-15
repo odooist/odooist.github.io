@@ -138,12 +138,14 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
+        ('http://odooist.com', 'Back to main site'),
         ("/archive.html", "Archive"),
         ("/categories/", "Tags"),
         ("/rss.xml", "RSS feed"),
     ),
 
     "ru": (
+        ('http://odooist.com', 'Назад на основной сайт'),
         ("/ru/archive.html", "Архив"),
         ("/ru/categories/", "Тэги"),
         ("/ru/rss.xml", "RSS лента"),
@@ -759,7 +761,7 @@ GITHUB_COMMIT_SOURCE = True
 
 # If set to True, EXIF data will be copied when an image is thumbnailed or
 # resized. (See also EXIF_WHITELIST)
-# PRESERVE_EXIF_DATA = False
+PRESERVE_EXIF_DATA = False
 
 # If you have enabled PRESERVE_EXIF_DATA, this option lets you choose EXIF
 # fields you want to keep in images. (See also PRESERVE_EXIF_DATA)
