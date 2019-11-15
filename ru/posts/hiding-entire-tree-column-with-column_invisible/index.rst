@@ -46,3 +46,5 @@ See this examples:
 
 By digging the source code I can see ``column_invisible`` was introduced in Odoo 11.0.
 
+Nice, but works **only** for ``many2one`` and ``one2many`` fields :-)
+

@@ -27,5 +27,8 @@ Or also:
         <field name="my_field" position="move"/>
     </field>
 
-The xpath with a position after, before, inside or replace can thus now
-have another xpath as direct child with position move.
+
+In the above example ``my_field`` is placed *after* ``target_field`` in the parent form.
+
+So now we can inherit and have the ability to manipulate fields order in views, not only add
+new fields.

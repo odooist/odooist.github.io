@@ -43,7 +43,8 @@ og: http://ogp.me/ns#
 </nav><div class="container-fluid main" id="content" role="main">
         <div class="row">
             <nav class="col-xs-12 col-sm-3 menu"><ul>
-<li class="withripple"><a href="../../archive.html">Архив</a></li>
+<li class="withripple"><a href="http://odooist.com">Назад на основной сайт</a></li>
+                <li class="withripple"><a href="../../archive.html">Архив</a></li>
                 <li class="withripple"><a href="../../categories/">Тэги</a></li>
                 <li class="withripple"><a href="../../rss.xml">RSS лента</a></li>
 
@@ -81,17 +82,18 @@ og: http://ogp.me/ns#
 <p>The position='move' has been introduced to move an element in an inherited
 view.</p>
 <p>It's used as</p>
-<pre class="code xml"><a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-3"></a><span class="nt">&lt;/xpath&gt;</span>
+<pre class="code xml"><a name="rest_code_74dc4f6e42054913b4453149e4a99e2c-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_74dc4f6e42054913b4453149e4a99e2c-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_74dc4f6e42054913b4453149e4a99e2c-3"></a><span class="nt">&lt;/xpath&gt;</span>
 </pre>
 <p>Or also:</p>
-<pre class="code xml"><a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-3"></a><span class="nt">&lt;/field&gt;</span>
+<pre class="code xml"><a name="rest_code_9d2c928993d6431baf95fd2589de980d-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_9d2c928993d6431baf95fd2589de980d-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_9d2c928993d6431baf95fd2589de980d-3"></a><span class="nt">&lt;/field&gt;</span>
 </pre>
-<p>The xpath with a position after, before, inside or replace can thus now
-have another xpath as direct child with position move.</p>
+<p>In the above example <code class="docutils literal">my_field</code> is placed <em>after</em> <code class="docutils literal">target_field</code> in the parent form.</p>
+<p>So now we can inherit and have the ability to manipulate fields order in views, not only add
+new fields.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
