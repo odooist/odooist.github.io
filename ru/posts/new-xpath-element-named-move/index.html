@@ -5,20 +5,20 @@ og: http://ogp.me/ns#
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hiding entire tree column with column_invisible | Odoo Open Treasures</title>
+<title>New xpath element named "move" | Odoo Open Treasures</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../rss.xml">
-<link rel="canonical" href="http://blog.odooist.com/ru/posts/hiding-entire-tree-column-with-column_invisible/">
+<link rel="canonical" href="http://blog.odooist.com/ru/posts/new-xpath-element-named-move/">
 <!--[if lt IE 9]>
             <script src="../../../assets/js/html5shiv.min.js"></script>
             <script src="../../../assets/js/respond.min.js"></script>
         <![endif]--><meta name="author" content="Odooist">
-<link rel="next" href="../new-xpath-element-named-move/" title='New xpath element named "move"' type="text/html">
+<link rel="prev" href="../hiding-entire-tree-column-with-column_invisible/" title="Hiding entire tree column with column_invisible" type="text/html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@odooist">
 <meta name="twitter:creator" content="@odooist">
-<link rel="alternate" hreflang="en" href="../../../posts/hiding-entire-tree-column-with-column_invisible/">
+<link rel="alternate" hreflang="en" href="../../../posts/new-xpath-element-named-move/">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Перейти к главному содержимому</a>
@@ -57,7 +57,7 @@ og: http://ogp.me/ns#
                 </ul>
 <img src="images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
                 <div class="col-xs-12 col-md-11 content-material">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hiding entire tree column with column_invisible</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">New xpath element named "move"</a></h1>
 <hr>
 <div class="metadata">
             <span class="byline author vcard">
@@ -68,53 +68,42 @@ og: http://ogp.me/ns#
             </span>
             <span class="dateline">
                 <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
-                    <time class="published dt-published" datetime="2019-11-15T12:15:55+01:00" itemprop="datePublished" title="2019-11-15 12:15">2019-11-15 12:15</time></a>
+                    <time class="published dt-published" datetime="2019-11-15T14:37:56+01:00" itemprop="datePublished" title="2019-11-15 14:37">2019-11-15 14:37</time></a>
             </span>
-                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html">Комментарии</a>
+                    <span><a href="https://github.com/odoo/odoo/pull/23877"><i class="mdi-action-launch"></i>Оригинальный сайт</a></span>
+                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/new-xpath-element-named-move.html">Комментарии</a>
 
 </span>
         </div>
         
         <hr></header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>We all know a way to hide a field in tree &amp; form views using <code class="docutils literal"><span class="pre">attrs={'invisible':</span> <span class="pre">[(...)]}</span></code>.</p>
-<p>We also know that we can hide <strong>entire column</strong> using <code class="docutils literal"><span class="pre">invisible="1"</span></code> attribute like this:</p>
-<pre class="code xml"><a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-1"></a><span class="nt">&lt;tree</span> <span class="na">decoration-warning=</span><span class="s">"event_input_mode == True"</span><span class="nt">&gt;</span>
-<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"event_input_mode"</span> <span class="na">invisible=</span><span class="s">"1"</span><span class="nt">/&gt;</span>
-<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"description"</span><span class="nt">/&gt;</span>
-<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-4"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"facility"</span> <span class="na">invisible=</span><span class="s">"context.get('hide_facility')"</span><span class="nt">/&gt;</span>
-<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-5"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"uid"</span><span class="nt">/&gt;</span>
-<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-6"></a><span class="nt">&lt;/tree&gt;</span>
+<p>The position='move' has been introduced to move an element in an inherited
+view.</p>
+<p>It's used as</p>
+<pre class="code xml"><a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-3"></a><span class="nt">&lt;/xpath&gt;</span>
 </pre>
-<p>In the above example we need <code class="docutils literal">event_input_mode</code> column just to highlight a row if
-it have <code class="docutils literal">event_input_mode</code> set so we hide it with <code class="docutils literal"><span class="pre">invisible="1"</span></code>.</p>
-<p>We can also notice that we can use <code class="docutils literal">context</code> values in condition expression.
-In the above example if <code class="docutils literal">context</code> has <code class="docutils literal">hide_facility</code> key then entire column is hidden.</p>
-<div class="section" id="the-treasure">
-<h2>The treasure</h2>
-<p>But what if you need to hide entire column by a condition coming from complex business
-logic implemented in Python?</p>
-<p>Here <strong>column_invisible</strong> attribute comes!</p>
-<p>See this examples:</p>
-<pre class="code xml"><a name="rest_code_b80b711171834a389070d5f0a55dfeee-1"></a><span class="nt">&lt;tree&gt;</span>
-<a name="rest_code_b80b711171834a389070d5f0a55dfeee-2"></a>    ...
-<a name="rest_code_b80b711171834a389070d5f0a55dfeee-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"foo"</span> <span class="na">attrs=</span><span class="s">"{'column_invisible': [('parent.product_id', '!=', False)]}"</span><span class="nt">/&gt;</span>
-<a name="rest_code_b80b711171834a389070d5f0a55dfeee-4"></a>    ...
-<a name="rest_code_b80b711171834a389070d5f0a55dfeee-5"></a><span class="nt">&lt;/tree&gt;</span>
+<p>Or also:</p>
+<pre class="code xml"><a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-3"></a><span class="nt">&lt;/field&gt;</span>
 </pre>
-<p>By digging the source code I can see <code class="docutils literal">column_invisible</code> was introduced in Odoo 11.0.</p>
-</div>
+<p>The xpath with a position after, before, inside or replace can thus now
+have another xpath as direct child with position move.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/110/" rel="tag">11.0</a>
             <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/120/" rel="tag">12.0</a>
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/inherit/" rel="tag">inherit</a>
             <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/views/" rel="tag">views</a>
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/xml/" rel="tag">xml</a>
         </div>
 
             <ul class="pager">
-<li class="next">
-                <a href="../new-xpath-element-named-move/" rel="next" title='New xpath element named "move"'>Следующая запись</a>
+<li class="previous">
+                <a href="../hiding-entire-tree-column-with-column_invisible/" rel="prev" title="Hiding entire tree column with column_invisible">Предыдущая запись</a>
             </li>
         </ul></nav></aside><section class="comments"><h2>
 <i class="mdi-communication-forum"></i>Комментарии</h2>
@@ -122,9 +111,9 @@ logic implemented in Python?</p>
 <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="blog-odooist-com",
-            disqus_url="http://blog.odooist.com/ru/posts/hiding-entire-tree-column-with-column_invisible/",
-        disqus_title="Hiding entire tree column with column_invisible",
-        disqus_identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html",
+            disqus_url="http://blog.odooist.com/ru/posts/new-xpath-element-named-move/",
+        disqus_title="New xpath element named \"move\"",
+        disqus_identifier="cache/posts/new-xpath-element-named-move.html",
         disqus_config = function () {
             this.language = "ru";
         };

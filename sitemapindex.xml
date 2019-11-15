@@ -11,11 +11,19 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/categories/120.xml</loc>
-  <lastmod>2019-11-15T13:31:00Z</lastmod>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/categories/inherit.xml</loc>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/categories/views.xml</loc>
-  <lastmod>2019-11-15T13:31:00Z</lastmod>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/categories/xml.xml</loc>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/galleries/rss.xml</loc>
@@ -23,7 +31,7 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/rss.xml</loc>
-  <lastmod>2019-11-15T13:31:00Z</lastmod>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/110.xml</loc>
@@ -31,11 +39,19 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/120.xml</loc>
-  <lastmod>2019-11-15T13:31:00Z</lastmod>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/ru/categories/inherit.xml</loc>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/views.xml</loc>
-  <lastmod>2019-11-15T13:31:00Z</lastmod>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/ru/categories/xml.xml</loc>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/galleries/rss.xml</loc>
@@ -43,10 +59,10 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/rss.xml</loc>
-  <lastmod>2019-11-15T13:31:00Z</lastmod>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/sitemap.xml</loc>
-  <lastmod>2019-11-15T13:31:00Z</lastmod>
+  <lastmod>2019-11-15T13:39:00Z</lastmod>
  </sitemap>
 </sitemapindex>

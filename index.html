@@ -14,7 +14,7 @@ og: http://ogp.me/ns#
 <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
-        <![endif]--><link rel="prefetch" href="posts/hiding-entire-tree-column-with-column_invisible/" type="text/html">
+        <![endif]--><link rel="prefetch" href="posts/new-xpath-element-named-move/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -56,7 +56,37 @@ og: http://ogp.me/ns#
 
     <div class="postindex well post-material ">
     
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/hiding-entire-tree-column-with-column_invisible/" class="u-url">Hiding entire tree column with column_invisible</a></h1>
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/new-xpath-element-named-move/" class="u-url">New xpath element named "move"</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
+                        <i class="mdi-action-face-unlock"></i>
+                    Odooist
+                </span>
+                <span class="dateline"><a href="posts/new-xpath-element-named-move/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-15T14:37:56+01:00" title="2019-11-15 14:37">2019-11-15 14:37</time></a></span>
+                    <span class="commentline">            <a href="posts/new-xpath-element-named-move/#disqus_thread" data-disqus-identifier="cache/posts/new-xpath-element-named-move.html">Comments</a>
+
+</span>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
+<p>The position='move' has been introduced to move an element in an inherited
+view.</p>
+<p>It's used as</p>
+<pre class="code xml"><a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_ed861d5a71154b2c86d37e7c2cf60650-3"></a><span class="nt">&lt;/xpath&gt;</span>
+</pre>
+<p>Or also:</p>
+<pre class="code xml"><a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_e1ba04abecb34c5086ab9abb8e41b33b-3"></a><span class="nt">&lt;/field&gt;</span>
+</pre>
+<p>The xpath with a position after, before, inside or replace can thus now
+have another xpath as direct child with position move.</p>
+</div>
+        </div>
+        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/hiding-entire-tree-column-with-column_invisible/" class="u-url">Hiding entire tree column with column_invisible</a></h1>
             <div class="metadata">
                 <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
