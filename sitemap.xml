@@ -15,11 +15,19 @@
  </url>
  <url>
   <loc>http://odooist.com/blog/archive.html</loc>
-  <lastmod>2019-11-15T11:08:00Z</lastmod>
+  <lastmod>2019-11-15T12:00:00Z</lastmod>
  </url>
  <url>
   <loc>http://odooist.com/blog/categories/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
+  <lastmod>2019-11-15T11:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://odooist.com/blog/categories/110/</loc>
+  <lastmod>2019-11-15T11:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://odooist.com/blog/categories/120/</loc>
+  <lastmod>2019-11-15T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>http://odooist.com/blog/categories/irattachment/</loc>
@@ -30,6 +38,10 @@
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
+  <loc>http://odooist.com/blog/categories/views/</loc>
+  <lastmod>2019-11-15T11:35:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://odooist.com/blog/galleries/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
@@ -38,9 +50,8 @@
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/posts/ir-attachment-clean-up/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
-  <xhtml:link rel="alternate" hreflang="ru" href="http://odooist.com/blog/ru/posts/ir-attachment-clean-up/" />
+  <loc>http://odooist.com/blog/posts/hiding-entire-tree-column-with-column_invisible/</loc>
+  <lastmod>2019-11-15T11:16:00Z</lastmod>
  </url>
  <url>
   <loc>http://odooist.com/blog/ru/</loc>
@@ -52,11 +63,19 @@
  </url>
  <url>
   <loc>http://odooist.com/blog/ru/archive.html</loc>
-  <lastmod>2019-11-15T11:08:00Z</lastmod>
+  <lastmod>2019-11-15T12:00:00Z</lastmod>
  </url>
  <url>
   <loc>http://odooist.com/blog/ru/categories/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
+  <lastmod>2019-11-15T11:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://odooist.com/blog/ru/categories/110/</loc>
+  <lastmod>2019-11-15T11:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://odooist.com/blog/ru/categories/120/</loc>
+  <lastmod>2019-11-15T11:35:00Z</lastmod>
  </url>
  <url>
   <loc>http://odooist.com/blog/ru/categories/irattachment/</loc>
@@ -67,12 +86,16 @@
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
+  <loc>http://odooist.com/blog/ru/categories/views/</loc>
+  <lastmod>2019-11-15T11:35:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://odooist.com/blog/ru/galleries/</loc>
   <lastmod>2019-11-15T10:46:00Z</lastmod>
  </url>
  <url>
-  <loc>http://odooist.com/blog/ru/posts/ir-attachment-clean-up/</loc>
-  <lastmod>2019-11-15T10:46:00Z</lastmod>
-  <xhtml:link rel="alternate" hreflang="en" href="http://odooist.com/blog/posts/ir-attachment-clean-up/" />
+  <loc>http://odooist.com/blog/ru/posts/hiding-entire-tree-column-with-column_invisible/</loc>
+  <lastmod>2019-11-15T11:16:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="en" href="http://odooist.com/blog/posts/hiding-entire-tree-column-with-column_invisible/" />
  </url>
 </urlset>

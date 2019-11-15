@@ -12,6 +12,7 @@
             <script src="../../../assets/js/html5shiv.min.js"></script>
             <script src="../../../assets/js/respond.min.js"></script>
         <![endif]--><meta name="author" content="Odooist">
+<meta name="robots" content="noindex">
 <link rel="alternate" hreflang="en" href="../../../posts/ir-attachment-clean-up/">
 </head>
 <body>
@@ -78,55 +79,55 @@
 <p>Как вы знаете.
 attachments.</p>
 <p>And sometimes when you delete</p>
-<pre class="code python"><a name="rest_code_a17806c85a974138ade6d04a70db9244-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-2"></a><span class="kn">import</span> <span class="nn">filetype</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-3"></a><span class="kn">import</span> <span class="nn">os</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-4"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-5"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-6"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'picture1'</span><span class="p">,</span> <span class="s1">'picture1_small'</span><span class="p">,</span> <span class="s1">'picture2'</span><span class="p">,</span> <span class="s1">'picture2_small'</span><span class="p">,</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-7"></a>         <span class="s1">'picture3'</span><span class="p">,</span> <span class="s1">'picture3_small'</span><span class="p">]</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-8"></a><span class="n">root</span> <span class="o">=</span> <span class="s1">'/var/lib/odoo/filestore/barrier'</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-9"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-10"></a><span class="n">records</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">'ir.attachment'</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([(</span><span class="s1">'res_field'</span><span class="p">,</span> <span class="s1">'!='</span><span class="p">,</span> <span class="bp">False</span><span class="p">)])</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-11"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-12"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-13"></a><span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-14"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-15"></a>    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-16"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-17"></a>        <span class="n">limit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1000</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-18"></a>        <span class="k">if</span> <span class="n">limit</span> <span class="o">&gt;</span> <span class="n">count</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-19"></a>            <span class="n">limit</span> <span class="o">=</span> <span class="n">count</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-20"></a>        <span class="n">data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-21"></a>            <span class="n">records</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">limit</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">'store_fname'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'create_date'</span><span class="p">]))</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-22"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-23"></a>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-24"></a>        <span class="n">res</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s1">'store_fname'</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-25"></a>                                    <span class="s1">'create_date'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'create_date'</span><span class="p">]}</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-26"></a>    <span class="k">return</span> <span class="n">data</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-27"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-28"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-29"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-30"></a><span class="k">def</span> <span class="nf">c</span><span class="p">():</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-31"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-32"></a>    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-33"></a>        <span class="n">subfolder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-34"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">subfolder</span><span class="p">):</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-35"></a>            <span class="n">f_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subfolder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-36"></a>            <span class="n">f_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-37"></a>            <span class="n">f_stat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-38"></a>            <span class="n">m_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">f_stat</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-39"></a>            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-40"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">m_dt</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-41"></a>                <span class="c1">#print('Checking name: ', f_name)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-42"></a>                <span class="k">if</span> <span class="n">f_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data2</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-43"></a>                    <span class="k">print</span><span class="p">(</span><span class="s1">'File not found '</span><span class="p">,</span> <span class="n">f_name</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-44"></a>                <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-45"></a>                    <span class="k">pass</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-46"></a>                    <span class="c1">#print('Found file name: ', f_name)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-47"></a>            <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-48"></a>                <span class="k">pass</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-49"></a>                <span class="c1">#print('Ommit fresh file ', f_name)</span>
+<pre class="code python"><a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-2"></a><span class="kn">import</span> <span class="nn">filetype</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-3"></a><span class="kn">import</span> <span class="nn">os</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-4"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-5"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-6"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'picture1'</span><span class="p">,</span> <span class="s1">'picture1_small'</span><span class="p">,</span> <span class="s1">'picture2'</span><span class="p">,</span> <span class="s1">'picture2_small'</span><span class="p">,</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-7"></a>         <span class="s1">'picture3'</span><span class="p">,</span> <span class="s1">'picture3_small'</span><span class="p">]</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-8"></a><span class="n">root</span> <span class="o">=</span> <span class="s1">'/var/lib/odoo/filestore/barrier'</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-9"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-10"></a><span class="n">records</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">'ir.attachment'</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([(</span><span class="s1">'res_field'</span><span class="p">,</span> <span class="s1">'!='</span><span class="p">,</span> <span class="bp">False</span><span class="p">)])</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-11"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-12"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-13"></a><span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-14"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-15"></a>    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-16"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-17"></a>        <span class="n">limit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1000</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-18"></a>        <span class="k">if</span> <span class="n">limit</span> <span class="o">&gt;</span> <span class="n">count</span><span class="p">:</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-19"></a>            <span class="n">limit</span> <span class="o">=</span> <span class="n">count</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-20"></a>        <span class="n">data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-21"></a>            <span class="n">records</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">limit</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">'store_fname'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'create_date'</span><span class="p">]))</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-22"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-23"></a>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-24"></a>        <span class="n">res</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s1">'store_fname'</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-25"></a>                                    <span class="s1">'create_date'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'create_date'</span><span class="p">]}</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-26"></a>    <span class="k">return</span> <span class="n">data</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-27"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-28"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-29"></a>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-30"></a><span class="k">def</span> <span class="nf">c</span><span class="p">():</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-31"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-32"></a>    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-33"></a>        <span class="n">subfolder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-34"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">subfolder</span><span class="p">):</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-35"></a>            <span class="n">f_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subfolder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-36"></a>            <span class="n">f_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-37"></a>            <span class="n">f_stat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-38"></a>            <span class="n">m_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">f_stat</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-39"></a>            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-40"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">m_dt</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-41"></a>                <span class="c1">#print('Checking name: ', f_name)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-42"></a>                <span class="k">if</span> <span class="n">f_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data2</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-43"></a>                    <span class="k">print</span><span class="p">(</span><span class="s1">'File not found '</span><span class="p">,</span> <span class="n">f_name</span><span class="p">)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-44"></a>                <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-45"></a>                    <span class="k">pass</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-46"></a>                    <span class="c1">#print('Found file name: ', f_name)</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-47"></a>            <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-48"></a>                <span class="k">pass</span>
+<a name="rest_code_0954eaf6a54045cb9ea8e748b199f199-49"></a>                <span class="c1">#print('Ommit fresh file ', f_name)</span>
 </pre>
 </div>
     </div>

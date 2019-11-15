@@ -54,73 +54,47 @@
 
     <div class="postindex well post-material ">
     
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/ir-attachment-clean-up/" class="u-url">ir.attachment clean up</a></h1>
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/hiding-entire-tree-column-with-column_invisible/" class="u-url">Hiding entire tree column with column_invisible</a></h1>
             <div class="metadata">
                 <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
                     Odooist
                 </span>
-                <span class="dateline"><a href="posts/ir-attachment-clean-up/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-15T05:57:50+01:00" title="2019-11-15 05:57">2019-11-15 05:57</time></a></span>
-                    <span class="commentline">            <a href="posts/ir-attachment-clean-up/#disqus_thread" data-disqus-identifier="cache/posts/irattachment-clean-up.html">Комментарии</a>
+                <span class="dateline"><a href="posts/hiding-entire-tree-column-with-column_invisible/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-15T12:15:55+01:00" title="2019-11-15 12:15">2019-11-15 12:15</time></a></span>
+                    <span class="commentline">            <a href="posts/hiding-entire-tree-column-with-column_invisible/#disqus_thread" data-disqus-identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html">Комментарии</a>
 
 </span>
             </div>
             <hr></header><div class="e-content entry-content">
         <div>
-<p>Как вы знаете.
-attachments.</p>
-<p>And sometimes when you delete</p>
-<pre class="code python"><a name="rest_code_a17806c85a974138ade6d04a70db9244-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-2"></a><span class="kn">import</span> <span class="nn">filetype</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-3"></a><span class="kn">import</span> <span class="nn">os</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-4"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-5"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-6"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'picture1'</span><span class="p">,</span> <span class="s1">'picture1_small'</span><span class="p">,</span> <span class="s1">'picture2'</span><span class="p">,</span> <span class="s1">'picture2_small'</span><span class="p">,</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-7"></a>         <span class="s1">'picture3'</span><span class="p">,</span> <span class="s1">'picture3_small'</span><span class="p">]</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-8"></a><span class="n">root</span> <span class="o">=</span> <span class="s1">'/var/lib/odoo/filestore/barrier'</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-9"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-10"></a><span class="n">records</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">'ir.attachment'</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([(</span><span class="s1">'res_field'</span><span class="p">,</span> <span class="s1">'!='</span><span class="p">,</span> <span class="bp">False</span><span class="p">)])</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-11"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-12"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-13"></a><span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-14"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-15"></a>    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-16"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-17"></a>        <span class="n">limit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1000</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-18"></a>        <span class="k">if</span> <span class="n">limit</span> <span class="o">&gt;</span> <span class="n">count</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-19"></a>            <span class="n">limit</span> <span class="o">=</span> <span class="n">count</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-20"></a>        <span class="n">data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-21"></a>            <span class="n">records</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">limit</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">'store_fname'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'create_date'</span><span class="p">]))</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-22"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-23"></a>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-24"></a>        <span class="n">res</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s1">'store_fname'</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-25"></a>                                    <span class="s1">'create_date'</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s1">'create_date'</span><span class="p">]}</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-26"></a>    <span class="k">return</span> <span class="n">data</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-27"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-28"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-29"></a>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-30"></a><span class="k">def</span> <span class="nf">c</span><span class="p">():</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-31"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-32"></a>    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-33"></a>        <span class="n">subfolder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-34"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">subfolder</span><span class="p">):</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-35"></a>            <span class="n">f_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">subfolder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-36"></a>            <span class="n">f_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-37"></a>            <span class="n">f_stat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-38"></a>            <span class="n">m_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">f_stat</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-39"></a>            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-40"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">m_dt</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-41"></a>                <span class="c1">#print('Checking name: ', f_name)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-42"></a>                <span class="k">if</span> <span class="n">f_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data2</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-43"></a>                    <span class="k">print</span><span class="p">(</span><span class="s1">'File not found '</span><span class="p">,</span> <span class="n">f_name</span><span class="p">)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-44"></a>                <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-45"></a>                    <span class="k">pass</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-46"></a>                    <span class="c1">#print('Found file name: ', f_name)</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-47"></a>            <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-48"></a>                <span class="k">pass</span>
-<a name="rest_code_a17806c85a974138ade6d04a70db9244-49"></a>                <span class="c1">#print('Ommit fresh file ', f_name)</span>
+<p>We all know a way to hide a field in tree &amp; form views using <code class="docutils literal"><span class="pre">attrs={'invisible':</span> <span class="pre">[(...)]}</span></code>.</p>
+<p>We also know that we can hide <strong>entire column</strong> using <code class="docutils literal"><span class="pre">invisible="1"</span></code> attribute like this:</p>
+<pre class="code xml"><a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-1"></a><span class="nt">&lt;tree</span> <span class="na">decoration-warning=</span><span class="s">"event_input_mode == True"</span><span class="nt">&gt;</span>
+<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"event_input_mode"</span> <span class="na">invisible=</span><span class="s">"1"</span><span class="nt">/&gt;</span>
+<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"description"</span><span class="nt">/&gt;</span>
+<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-4"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"facility"</span> <span class="na">invisible=</span><span class="s">"context.get('hide_facility')"</span><span class="nt">/&gt;</span>
+<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-5"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"uid"</span><span class="nt">/&gt;</span>
+<a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-6"></a><span class="nt">&lt;/tree&gt;</span>
 </pre>
+<p>In the above example we need <code class="docutils literal">event_input_mode</code> column just to highlight a row if
+it have <code class="docutils literal">event_input_mode</code> set so we hide it with <code class="docutils literal"><span class="pre">invisible="1"</span></code>.</p>
+<p>We can also notice that we can use <code class="docutils literal">context</code> values in condition expression.
+In the above example if <code class="docutils literal">context</code> has <code class="docutils literal">hide_facility</code> key then entire column is hidden.</p>
+<div class="section" id="the-treasure">
+<h2>The treasure</h2>
+<p>But what if you need to hide entire column by a condition coming from complex business
+logic implemented in Python?</p>
+<p>Here <strong>column_invisible</strong> attribute comes!</p>
+<p>See this examples:</p>
+<pre class="code xml"><a name="rest_code_b80b711171834a389070d5f0a55dfeee-1"></a><span class="nt">&lt;tree&gt;</span>
+<a name="rest_code_b80b711171834a389070d5f0a55dfeee-2"></a>    ...
+<a name="rest_code_b80b711171834a389070d5f0a55dfeee-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"foo"</span> <span class="na">attrs=</span><span class="s">"{'column_invisible': [('parent.product_id', '!=', False)]}"</span><span class="nt">/&gt;</span>
+<a name="rest_code_b80b711171834a389070d5f0a55dfeee-4"></a>    ...
+<a name="rest_code_b80b711171834a389070d5f0a55dfeee-5"></a><span class="nt">&lt;/tree&gt;</span>
+</pre>
+<p>By digging the source code I can see <code class="docutils literal">column_invisible</code> was introduced in Odoo 11.0.</p>
+</div>
 </div>
         </div>
         </article>

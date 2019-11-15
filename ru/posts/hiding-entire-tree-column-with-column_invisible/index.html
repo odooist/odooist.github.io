@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Odoo tips &amp; tricks">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Odoo Open Treasures</title>
-<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="rss.xml">
-<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="ru/rss.xml">
-<link rel="canonical" href="http://odooist.com/blog/">
+<title>Hiding entire tree column with column_invisible | Odoo Open Treasures</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../rss.xml">
+<link rel="canonical" href="http://odooist.com/blog/ru/posts/hiding-entire-tree-column-with-column_invisible/">
 <!--[if lt IE 9]>
-            <script src="assets/js/html5shiv.min.js"></script>
-            <script src="assets/js/respond.min.js"></script>
-        <![endif]--><link rel="prefetch" href="posts/hiding-entire-tree-column-with-column_invisible/" type="text/html">
+            <script src="../../../assets/js/html5shiv.min.js"></script>
+            <script src="../../../assets/js/respond.min.js"></script>
+        <![endif]--><meta name="author" content="Odooist">
+<link rel="alternate" hreflang="en" href="../../../posts/hiding-entire-tree-column-with-column_invisible/">
 </head>
 <body>
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+<a href="#content" class="sr-only sr-only-focusable">Перейти к главному содержимому</a>
 
 <!-- Menubar -->
 
@@ -23,7 +23,7 @@
         <div class="row">
           <div class="col-xs-3">
             <h1 class="title-blog">
-                <a href="http://odooist.com/blog/">
+                <a href="http://odooist.com/blog/ru/">
                         <span id="blog-title">Odoo Open Treasures</span>
                     </a>
             </h1>
@@ -37,37 +37,40 @@
 </nav><div class="container-fluid main" id="content" role="main">
         <div class="row">
             <nav class="col-xs-12 col-sm-3 menu"><ul>
-<li class="withripple"><a href="archive.html">Archive</a></li>
-                <li class="withripple"><a href="categories/">Tags</a></li>
-                <li class="withripple"><a href="rss.xml">RSS feed</a></li>
+<li class="withripple"><a href="../../archive.html">Архив</a></li>
+                <li class="withripple"><a href="../../categories/">Тэги</a></li>
+                <li class="withripple"><a href="../../rss.xml">RSS лента</a></li>
 
                     
                 </ul>
 <ul>
 <li>            </li>
-<li><a href="http://odooist.com/blog/ru/" rel="alternate" hreflang="ru">Русский</a></li>
+<li><a href="http://odooist.com/blog/" rel="alternate" hreflang="en">English</a></li>
 
                     
                 </ul>
 <img src="images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
                 <div class="col-xs-12 col-md-11 content-material">
-
-    <div class="postindex well post-material ">
-    
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/hiding-entire-tree-column-with-column_invisible/" class="u-url">Hiding entire tree column with column_invisible</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hiding entire tree column with column_invisible</a></h1>
+<hr>
+<div class="metadata">
+            <span class="byline author vcard">
+                <a href=".">
                         <i class="mdi-action-face-unlock"></i>
                     Odooist
-                </span>
-                <span class="dateline"><a href="posts/hiding-entire-tree-column-with-column_invisible/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-15T12:15:55+01:00" title="2019-11-15 12:15">2019-11-15 12:15</time></a></span>
-                    <span class="commentline">            <a href="posts/hiding-entire-tree-column-with-column_invisible/#disqus_thread" data-disqus-identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html">Comments</a>
+                </a>
+            </span>
+            <span class="dateline">
+                <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
+                    <time class="published dt-published" datetime="2019-11-15T12:15:55+01:00" itemprop="datePublished" title="2019-11-15 12:15">2019-11-15 12:15</time></a>
+            </span>
+                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html">Комментарии</a>
 
 </span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
+        </div>
+        
+        <hr></header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
 <p>We all know a way to hide a field in tree &amp; form views using <code class="docutils literal"><span class="pre">attrs={'invisible':</span> <span class="pre">[(...)]}</span></code>.</p>
 <p>We also know that we can hide <strong>entire column</strong> using <code class="docutils literal"><span class="pre">invisible="1"</span></code> attribute like this:</p>
 <pre class="code xml"><a name="rest_code_8e3f728dbf244417aa39d14e81f303d3-1"></a><span class="nt">&lt;tree</span> <span class="na">decoration-warning=</span><span class="s">"event_input_mode == True"</span><span class="nt">&gt;</span>
@@ -96,11 +99,37 @@ logic implemented in Python?</p>
 <p>By digging the source code I can see <code class="docutils literal">column_invisible</code> was introduced in Odoo 11.0.</p>
 </div>
 </div>
+    </div>
+    <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/110/" rel="tag">11.0</a>
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/120/" rel="tag">12.0</a>
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/views/" rel="tag">views</a>
         </div>
-        </article>
-</div>
 
-               <script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+    
+    </nav></aside><section class="comments"><h2>
+<i class="mdi-communication-forum"></i>Комментарии</h2>
+        <hr>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="blog-odooist-com",
+            disqus_url="http://odooist.com/blog/ru/posts/hiding-entire-tree-column-with-column_invisible/",
+        disqus_title="Hiding entire tree column with column_invisible",
+        disqus_identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html",
+        disqus_config = function () {
+            this.language = "ru";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
             </div>
         </div>
@@ -125,11 +154,15 @@ logic implemented in Python?</p>
           </div>
         </div>
         <div class="source-button">
+    <a class="btn btn-fab btn-raised btn-material-indigo" target="_blank" href="index.rst" title="Источник">
+        <i class="mdi-file-cloud-download"></i>
+    </a>
+
         </div>
 </div>
 
 
-            <script src="assets/js/all-nocdn.js"></script><script>
+            <script src="../../../assets/js/all-nocdn.js"></script><script>
 
             $(document).ready(function() {
                 // This command is used to initialize some elements and make them work properly
@@ -152,7 +185,7 @@ logic implemented in Python?</p>
                 $("nav.menu, ul").toggleClass('responsive', '');
             }
         </script><!-- fancy dates --><script>
-    moment.locale("en");
+    moment.locale("ru");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><script>
     baguetteBox.run('div#content', {
