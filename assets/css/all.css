@@ -8698,7 +8698,7 @@ button.kc_fab_main_btn{
 
 h1, h2, h3, h4 {
     font-family: "ralewaymedium";
-    color: #009688;
+    color: #704e68;
 }
 
 h2 {
@@ -8722,7 +8722,7 @@ h2 {
 
 #hamburger {
     background-color: #FFF;
-    color: #009688;
+    color: #704e68;
     font-size: 1.5em;
     font-weight: 400;
     position: absolute;
@@ -8892,7 +8892,7 @@ span.vcard img.img-circle {
     height: 18px;
     margin: 2px;
     border-radius: 18px;
-    background-color: #009688;
+    background-color: #704e68;
 }
 
 /* layout */
