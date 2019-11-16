@@ -17,7 +17,10 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "Odooist"  # (translatable)
-BLOG_TITLE = "Odoo Open Treasures"  # (translatable)
+BLOG_TITLE = {
+    "en": "Odoo Open Treasures",
+    "ru": "Сокровищница Odoo",
+}
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "http://blog.odooist.com/"
@@ -25,7 +28,7 @@ SITE_URL = "http://blog.odooist.com/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://blog.odooist.com/"
 BLOG_EMAIL = "odooist@gmail.com"
-BLOG_DESCRIPTION = "Odoo tips & tricks"  # (translatable)
+BLOG_DESCRIPTION = {"en": "Odoo discovered secrets", "ru": "Открытые секреты Odoo"}
 
 # Nikola is multilingual!
 #
