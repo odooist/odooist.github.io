@@ -8779,6 +8779,10 @@ h2 {
     color: #fff;
 }
 
+h1.title-blog {
+    text-align: center;
+}
+
 .source-button > a {
     position: fixed;
     z-index: 1000;
