@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. status: draft
 
 You know that by default Odoo uses local file system storage for sessions and
 attachments. 

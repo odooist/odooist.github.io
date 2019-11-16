@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
-" lang="en">
+" lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>New xpath element named "move" | Odoo Open Treasures</title>
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
-<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../ru/rss.xml">
-<link rel="canonical" href="http://blog.odooist.com/posts/new-xpath-element-named-move/">
+<title>Начальный режим формы | Odoo Open Treasures</title>
+<link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../../../rss.xml">
+<link rel="canonical" href="http://blog.odooist.com/ru/posts/ru/ru/forms-initial-mode/">
 <!--[if lt IE 9]>
-            <script src="../../assets/js/html5shiv.min.js"></script>
-            <script src="../../assets/js/respond.min.js"></script>
+            <script src="../../../../../assets/js/html5shiv.min.js"></script>
+            <script src="../../../../../assets/js/respond.min.js"></script>
         <![endif]--><meta name="author" content="Odooist">
-<link rel="prev" href="../hiding-entire-tree-column-with-column_invisible/" title="Hiding entire tree column with column_invisible" type="text/html">
-<link rel="next" href="../forms-initial-mode/" title="Form's initial mode" type="text/html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@odooist">
 <meta name="twitter:creator" content="@odooist">
 </head>
 <body>
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+<a href="#content" class="sr-only sr-only-focusable">Перейти к главному содержимому</a>
 
 <!-- Menubar -->
 
@@ -29,7 +27,7 @@ og: http://ogp.me/ns#
         <div class="row">
           <div class="col-xs-3">
             <h1 class="title-blog">
-                <a href="http://blog.odooist.com/">
+                <a href="http://blog.odooist.com/ru/">
                         <span id="blog-title">Odoo Open Treasures</span>
                     </a>
             </h1>
@@ -43,22 +41,22 @@ og: http://ogp.me/ns#
 </nav><div class="container-fluid main" id="content" role="main">
         <div class="row">
             <nav class="col-xs-12 col-sm-3 menu"><ul>
-<li class="withripple"><a href="http://odooist.com">Back to main site</a></li>
-                <li class="withripple"><a href="../../archive.html">Archive</a></li>
-                <li class="withripple"><a href="../../categories/">Tags</a></li>
-                <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
+<li class="withripple"><a href="http://odooist.com">Назад на основной сайт</a></li>
+                <li class="withripple"><a href="../../../../archive.html">Архив</a></li>
+                <li class="withripple"><a href="../../../../categories/">Тэги</a></li>
+                <li class="withripple"><a href="../../../../rss.xml">RSS лента</a></li>
 
                     
                 </ul>
 <ul>
 <li>            </li>
-<li><a href="http://blog.odooist.com/ru/" rel="alternate" hreflang="ru">Русский</a></li>
+<li><a href="http://blog.odooist.com/" rel="alternate" hreflang="en">English</a></li>
 
                     
                 </ul>
-<img src="../../images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
+<img src="../../../../../images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
                 <div class="col-xs-12 col-md-11 content-material">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">New xpath element named "move"</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Начальный режим формы</a></h1>
 <hr>
 <div class="metadata">
             <span class="byline author vcard">
@@ -69,58 +67,43 @@ og: http://ogp.me/ns#
             </span>
             <span class="dateline">
                 <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
-                    <time class="published dt-published" datetime="2019-11-15T14:37:56+01:00" itemprop="datePublished" title="2019-11-15 14:37">2019-11-15 14:37</time></a>
+                    <time class="published dt-published" datetime="2019-11-16T04:21:21+01:00" itemprop="datePublished" title="2019-11-16 04:21">2019-11-16 04:21</time></a>
             </span>
-                    <span><a href="https://github.com/odoo/odoo/pull/23877"><i class="mdi-action-launch"></i>Original site</a></span>
-                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/new-xpath-element-named-move.html">Comments</a>
+                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/ru/forms-initial-mode.ru.html">Комментарии</a>
 
 </span>
         </div>
         
         <hr></header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>The position='move' has been introduced to move an element in an inherited
-view.</p>
-<p>It's used as</p>
-<pre class="code xml"><a name="rest_code_c6277706fb6c4e20beeacfed7c97ea35-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_c6277706fb6c4e20beeacfed7c97ea35-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_c6277706fb6c4e20beeacfed7c97ea35-3"></a><span class="nt">&lt;/xpath&gt;</span>
+<p>Когда Вы кликаете строчку в списочном виде (tree view), открывается вид формы в режиме
+чтения.</p>
+<p>Когда в виде списка Вы кликаете в кнопку <code class="docutils literal">Создать</code>,  открывается форма создания
+новой записи в режиме редактирования (а как иначе? :-)</p>
+<p>Но иногда с точки зрения юзабилити или по другим причинам необходимо сделать так,
+чтобы при переходе из вида списка в вид формы последняя открылась сразу в режиме редактирования.</p>
+<p>Делается это при помощи опции <code class="docutils literal">initial_mode</code> при декларации формы, пример:</p>
+<pre class="code xml"><a name="rest_code_a2b484a5c3434e85bb26a1404b80d7de-1"></a><span class="nt">&lt;form</span> <span class="na">options=</span><span class="s">"{'initial_mode': 'view'}"</span><span class="nt">&gt;</span>
 </pre>
-<p>Or also:</p>
-<pre class="code xml"><a name="rest_code_df4c01ad88744672b049b26160be4835-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_df4c01ad88744672b049b26160be4835-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_df4c01ad88744672b049b26160be4835-3"></a><span class="nt">&lt;/field&gt;</span>
-</pre>
-<p>In the above example <code class="docutils literal">my_field</code> is placed <em>after</em> <code class="docutils literal">target_field</code> in the parent form.</p>
-<p>So now we can inherit and have the ability to manipulate fields order in views, not only add
-new fields.</p>
+<p>Данная опция доступна во всех вериях Odoo.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/120/" rel="tag">12.0</a>
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/inherit/" rel="tag">inherit</a>
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/views/" rel="tag">views</a>
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/xml/" rel="tag">xml</a>
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../../../categories/views/" rel="tag">views</a>
         </div>
 
-            <ul class="pager">
-<li class="previous">
-                <a href="../hiding-entire-tree-column-with-column_invisible/" rel="prev" title="Hiding entire tree column with column_invisible">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../forms-initial-mode/" rel="next" title="Form's initial mode">Next post</a>
-            </li>
-        </ul></nav></aside><section class="comments"><h2>
-<i class="mdi-communication-forum"></i>Comments</h2>
+    
+    </nav></aside><section class="comments"><h2>
+<i class="mdi-communication-forum"></i>Комментарии</h2>
         <hr>
 <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="blog-odooist-com",
-            disqus_url="http://blog.odooist.com/posts/new-xpath-element-named-move/",
-        disqus_title="New xpath element named \"move\"",
-        disqus_identifier="cache/posts/new-xpath-element-named-move.html",
+            disqus_url="http://blog.odooist.com/ru/posts/ru/ru/forms-initial-mode/",
+        disqus_title="\u041d\u0430\u0447\u0430\u043b\u044c\u043d\u044b\u0439 \u0440\u0435\u0436\u0438\u043c \u0444\u043e\u0440\u043c\u044b",
+        disqus_identifier="cache/posts/ru/forms-initial-mode.ru.html",
         disqus_config = function () {
-            this.language = "en";
+            this.language = "ru";
         };
         (function() {
             var dsq = document.createElement('script'); dsq.async = true;
@@ -161,7 +144,7 @@ new fields.</p>
 </div>
 
 
-            <script src="../../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+            <script src="../../../../../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_more">Share</a>
 <ul>
 <li>
@@ -201,7 +184,7 @@ new fields.</p>
                 $("nav.menu, ul").toggleClass('responsive', '');
             }
         </script><!-- fancy dates --><script>
-    moment.locale("en");
+    moment.locale("ru");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><script>
     baguetteBox.run('div#content', {

@@ -7,104 +7,154 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://blog.odooist.com/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/2019/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/archive.html</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T04:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/110/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/120/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/inherit/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/categories/irattachment/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/categories/maintainance/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/views/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/xml/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/galleries/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/listings/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/posts/forms-initial-mode/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/posts/new-xpath-element-named-move/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/posts/ru/forms-initial-mode/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="ru" href="http://blog.odooist.com/ru/posts/ru/ru/forms-initial-mode/" />
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/2019/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/archive.html</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:59:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/categories/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/categories/110/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/categories/120/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/categories/inherit/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/categories/irattachment/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/categories/maintainance/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/categories/views/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/categories/xml/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/galleries/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/posts/forms-initial-mode/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/posts/hiding-entire-tree-column-with-column_invisible/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
-  <xhtml:link rel="alternate" hreflang="en" href="http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/" />
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/posts/ir-attachment-clean-up/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/ru/posts/new-xpath-element-named-move/</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/posts/ru/forms-initial-mode/</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="en" href="http://blog.odooist.com/posts/forms-initial-mode/" />
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/posts/ru/hiding-entire-tree-column-with-column_invisible/</loc>
+  <lastmod>2019-11-16T03:53:00Z</lastmod>
+  <xhtml:link rel="alternate" hreflang="en" href="http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/" />
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/posts/ru/new-xpath-element-named-move/</loc>
+  <lastmod>2019-11-16T03:53:00Z</lastmod>
   <xhtml:link rel="alternate" hreflang="en" href="http://blog.odooist.com/posts/new-xpath-element-named-move/" />
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/ru/posts/ru/ru/forms-initial-mode/</loc>
+  <lastmod>2019-11-16T03:53:00Z</lastmod>
  </url>
 </urlset>

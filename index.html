@@ -14,7 +14,7 @@ og: http://ogp.me/ns#
 <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
-        <![endif]--><link rel="prefetch" href="posts/new-xpath-element-named-move/" type="text/html">
+        <![endif]--><link rel="prefetch" href="posts/forms-initial-mode/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -57,7 +57,32 @@ og: http://ogp.me/ns#
 
     <div class="postindex well post-material ">
     
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/new-xpath-element-named-move/" class="u-url">New xpath element named "move"</a></h1>
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/forms-initial-mode/" class="u-url">Form's initial mode</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
+                        <i class="mdi-action-face-unlock"></i>
+                    Odooist
+                </span>
+                <span class="dateline"><a href="posts/forms-initial-mode/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-16T04:21:21+01:00" title="2019-11-16 04:21">2019-11-16 04:21</time></a></span>
+                    <span class="commentline">            <a href="posts/forms-initial-mode/#disqus_thread" data-disqus-identifier="cache/posts/forms-initial-mode.html">Comments</a>
+
+</span>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
+<p>When you click on a tree view row a form view is opened and this form is opened
+in read mode.</p>
+<p>When you click the <code class="docutils literal">Create</code> button from a tree view, a new record form view is opened
+in edit mode (how otherwise? :-)</p>
+<p>But sometimes it's more usable to open an existing immediately record in edit mode.</p>
+<p>This can be done using <code class="docutils literal">form</code> option <code class="docutils literal">initial_mode</code> like is shown in the following example:</p>
+<pre class="code xml"><a name="rest_code_f2747803f2e84a64b7b07c0908bd32a6-1"></a><span class="nt">&lt;form</span> <span class="na">options=</span><span class="s">"{'initial_mode': 'view'}"</span><span class="nt">&gt;</span>
+</pre>
+<p>This option is available in all Odoo versions.</p>
+</div>
+        </div>
+        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/new-xpath-element-named-move/" class="u-url">New xpath element named "move"</a></h1>
             <div class="metadata">
                 <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
@@ -74,14 +99,14 @@ og: http://ogp.me/ns#
 <p>The position='move' has been introduced to move an element in an inherited
 view.</p>
 <p>It's used as</p>
-<pre class="code xml"><a name="rest_code_db5aaa2f824b4a10a3dc5a6d447127de-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_db5aaa2f824b4a10a3dc5a6d447127de-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_db5aaa2f824b4a10a3dc5a6d447127de-3"></a><span class="nt">&lt;/xpath&gt;</span>
+<pre class="code xml"><a name="rest_code_c6277706fb6c4e20beeacfed7c97ea35-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_c6277706fb6c4e20beeacfed7c97ea35-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_c6277706fb6c4e20beeacfed7c97ea35-3"></a><span class="nt">&lt;/xpath&gt;</span>
 </pre>
 <p>Or also:</p>
-<pre class="code xml"><a name="rest_code_cae8043e76574355a1053dfa67283ae5-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_cae8043e76574355a1053dfa67283ae5-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_cae8043e76574355a1053dfa67283ae5-3"></a><span class="nt">&lt;/field&gt;</span>
+<pre class="code xml"><a name="rest_code_df4c01ad88744672b049b26160be4835-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
+<a name="rest_code_df4c01ad88744672b049b26160be4835-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
+<a name="rest_code_df4c01ad88744672b049b26160be4835-3"></a><span class="nt">&lt;/field&gt;</span>
 </pre>
 <p>In the above example <code class="docutils literal">my_field</code> is placed <em>after</em> <code class="docutils literal">target_field</code> in the parent form.</p>
 <p>So now we can inherit and have the ability to manipulate fields order in views, not only add
@@ -104,12 +129,12 @@ new fields.</p>
         <div>
 <p>We all know a way to hide a field in tree &amp; form views using <code class="docutils literal"><span class="pre">attrs={'invisible':</span> <span class="pre">[(...)]}</span></code>.</p>
 <p>We also know that we can hide <strong>entire column</strong> using <code class="docutils literal"><span class="pre">invisible="1"</span></code> attribute like this:</p>
-<pre class="code xml"><a name="rest_code_cdde92cfa5304e6683f862684e62a56f-1"></a><span class="nt">&lt;tree</span> <span class="na">decoration-warning=</span><span class="s">"event_input_mode == True"</span><span class="nt">&gt;</span>
-<a name="rest_code_cdde92cfa5304e6683f862684e62a56f-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"event_input_mode"</span> <span class="na">invisible=</span><span class="s">"1"</span><span class="nt">/&gt;</span>
-<a name="rest_code_cdde92cfa5304e6683f862684e62a56f-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"description"</span><span class="nt">/&gt;</span>
-<a name="rest_code_cdde92cfa5304e6683f862684e62a56f-4"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"facility"</span> <span class="na">invisible=</span><span class="s">"context.get('hide_facility')"</span><span class="nt">/&gt;</span>
-<a name="rest_code_cdde92cfa5304e6683f862684e62a56f-5"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"uid"</span><span class="nt">/&gt;</span>
-<a name="rest_code_cdde92cfa5304e6683f862684e62a56f-6"></a><span class="nt">&lt;/tree&gt;</span>
+<pre class="code xml"><a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-1"></a><span class="nt">&lt;tree</span> <span class="na">decoration-warning=</span><span class="s">"event_input_mode == True"</span><span class="nt">&gt;</span>
+<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"event_input_mode"</span> <span class="na">invisible=</span><span class="s">"1"</span><span class="nt">/&gt;</span>
+<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"description"</span><span class="nt">/&gt;</span>
+<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-4"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"facility"</span> <span class="na">invisible=</span><span class="s">"context.get('hide_facility')"</span><span class="nt">/&gt;</span>
+<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-5"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"uid"</span><span class="nt">/&gt;</span>
+<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-6"></a><span class="nt">&lt;/tree&gt;</span>
 </pre>
 <p>In the above example we need <code class="docutils literal">event_input_mode</code> column just to highlight a row if
 it have <code class="docutils literal">event_input_mode</code> set so we hide it with <code class="docutils literal"><span class="pre">invisible="1"</span></code>.</p>
@@ -121,11 +146,11 @@ In the above example if <code class="docutils literal">context</code> has <code 
 logic implemented in Python?</p>
 <p>Here <strong>column_invisible</strong> attribute comes!</p>
 <p>See this examples:</p>
-<pre class="code xml"><a name="rest_code_c028730a82dc48858c524b920d8f5430-1"></a><span class="nt">&lt;tree&gt;</span>
-<a name="rest_code_c028730a82dc48858c524b920d8f5430-2"></a>    ...
-<a name="rest_code_c028730a82dc48858c524b920d8f5430-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"foo"</span> <span class="na">attrs=</span><span class="s">"{'column_invisible': [('parent.product_id', '!=', False)]}"</span><span class="nt">/&gt;</span>
-<a name="rest_code_c028730a82dc48858c524b920d8f5430-4"></a>    ...
-<a name="rest_code_c028730a82dc48858c524b920d8f5430-5"></a><span class="nt">&lt;/tree&gt;</span>
+<pre class="code xml"><a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-1"></a><span class="nt">&lt;tree&gt;</span>
+<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-2"></a>    ...
+<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"foo"</span> <span class="na">attrs=</span><span class="s">"{'column_invisible': [('parent.product_id', '!=', False)]}"</span><span class="nt">/&gt;</span>
+<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-4"></a>    ...
+<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-5"></a><span class="nt">&lt;/tree&gt;</span>
 </pre>
 <p>By digging the source code I can see <code class="docutils literal">column_invisible</code> was introduced in Odoo 11.0.</p>
 <p>Nice, but works <strong>only</strong> for <code class="docutils literal">many2one</code> and <code class="docutils literal">one2many</code> fields :-)</p>

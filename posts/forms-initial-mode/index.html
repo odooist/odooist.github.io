@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
-" lang="ru">
+" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>New xpath element named "move" | Odoo Open Treasures</title>
-<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../../rss.xml">
-<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../rss.xml">
-<link rel="canonical" href="http://blog.odooist.com/ru/posts/new-xpath-element-named-move/">
+<title>Form's initial mode | Odoo Open Treasures</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../ru/rss.xml">
+<link rel="canonical" href="http://blog.odooist.com/posts/forms-initial-mode/">
 <!--[if lt IE 9]>
-            <script src="../../../assets/js/html5shiv.min.js"></script>
-            <script src="../../../assets/js/respond.min.js"></script>
+            <script src="../../assets/js/html5shiv.min.js"></script>
+            <script src="../../assets/js/respond.min.js"></script>
         <![endif]--><meta name="author" content="Odooist">
-<link rel="prev" href="../hiding-entire-tree-column-with-column_invisible/" title="Hiding entire tree column with column_invisible" type="text/html">
+<link rel="prev" href="../new-xpath-element-named-move/" title='New xpath element named "move"' type="text/html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@odooist">
 <meta name="twitter:creator" content="@odooist">
-<link rel="alternate" hreflang="en" href="../../../posts/new-xpath-element-named-move/">
 </head>
 <body>
-<a href="#content" class="sr-only sr-only-focusable">Перейти к главному содержимому</a>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
 
@@ -29,7 +28,7 @@ og: http://ogp.me/ns#
         <div class="row">
           <div class="col-xs-3">
             <h1 class="title-blog">
-                <a href="http://blog.odooist.com/ru/">
+                <a href="http://blog.odooist.com/">
                         <span id="blog-title">Odoo Open Treasures</span>
                     </a>
             </h1>
@@ -43,22 +42,22 @@ og: http://ogp.me/ns#
 </nav><div class="container-fluid main" id="content" role="main">
         <div class="row">
             <nav class="col-xs-12 col-sm-3 menu"><ul>
-<li class="withripple"><a href="http://odooist.com">Назад на основной сайт</a></li>
-                <li class="withripple"><a href="../../archive.html">Архив</a></li>
-                <li class="withripple"><a href="../../categories/">Тэги</a></li>
-                <li class="withripple"><a href="../../rss.xml">RSS лента</a></li>
+<li class="withripple"><a href="http://odooist.com">Back to main site</a></li>
+                <li class="withripple"><a href="../../archive.html">Archive</a></li>
+                <li class="withripple"><a href="../../categories/">Tags</a></li>
+                <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
 
                     
                 </ul>
 <ul>
 <li>            </li>
-<li><a href="http://blog.odooist.com/" rel="alternate" hreflang="en">English</a></li>
+<li><a href="http://blog.odooist.com/ru/" rel="alternate" hreflang="ru">Русский</a></li>
 
                     
                 </ul>
-<img src="../../../images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
+<img src="../../images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
                 <div class="col-xs-12 col-md-11 content-material">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">New xpath element named "move"</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Form's initial mode</a></h1>
 <hr>
 <div class="metadata">
             <span class="byline author vcard">
@@ -69,55 +68,45 @@ og: http://ogp.me/ns#
             </span>
             <span class="dateline">
                 <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
-                    <time class="published dt-published" datetime="2019-11-15T14:37:56+01:00" itemprop="datePublished" title="2019-11-15 14:37">2019-11-15 14:37</time></a>
+                    <time class="published dt-published" datetime="2019-11-16T04:21:21+01:00" itemprop="datePublished" title="2019-11-16 04:21">2019-11-16 04:21</time></a>
             </span>
-                    <span><a href="https://github.com/odoo/odoo/pull/23877"><i class="mdi-action-launch"></i>Оригинальный сайт</a></span>
-                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/new-xpath-element-named-move.html">Комментарии</a>
+                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/forms-initial-mode.html">Comments</a>
 
 </span>
         </div>
         
         <hr></header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>The position='move' has been introduced to move an element in an inherited
-view.</p>
-<p>It's used as</p>
-<pre class="code xml"><a name="rest_code_db5aaa2f824b4a10a3dc5a6d447127de-1"></a><span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@target"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_db5aaa2f824b4a10a3dc5a6d447127de-2"></a>    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">"//@node"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_db5aaa2f824b4a10a3dc5a6d447127de-3"></a><span class="nt">&lt;/xpath&gt;</span>
+<p>When you click on a tree view row a form view is opened and this form is opened
+in read mode.</p>
+<p>When you click the <code class="docutils literal">Create</code> button from a tree view, a new record form view is opened
+in edit mode (how otherwise? :-)</p>
+<p>But sometimes it's more usable to open an existing immediately record in edit mode.</p>
+<p>This can be done using <code class="docutils literal">form</code> option <code class="docutils literal">initial_mode</code> like is shown in the following example:</p>
+<pre class="code xml"><a name="rest_code_f2747803f2e84a64b7b07c0908bd32a6-1"></a><span class="nt">&lt;form</span> <span class="na">options=</span><span class="s">"{'initial_mode': 'view'}"</span><span class="nt">&gt;</span>
 </pre>
-<p>Or also:</p>
-<pre class="code xml"><a name="rest_code_cae8043e76574355a1053dfa67283ae5-1"></a><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"target_field"</span> <span class="na">position=</span><span class="s">"after"</span><span class="nt">&gt;</span>
-<a name="rest_code_cae8043e76574355a1053dfa67283ae5-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"my_field"</span> <span class="na">position=</span><span class="s">"move"</span><span class="nt">/&gt;</span>
-<a name="rest_code_cae8043e76574355a1053dfa67283ae5-3"></a><span class="nt">&lt;/field&gt;</span>
-</pre>
-<p>In the above example <code class="docutils literal">my_field</code> is placed <em>after</em> <code class="docutils literal">target_field</code> in the parent form.</p>
-<p>So now we can inherit and have the ability to manipulate fields order in views, not only add
-new fields.</p>
+<p>This option is available in all Odoo versions.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/120/" rel="tag">12.0</a>
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/inherit/" rel="tag">inherit</a>
             <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/views/" rel="tag">views</a>
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/xml/" rel="tag">xml</a>
         </div>
 
             <ul class="pager">
 <li class="previous">
-                <a href="../hiding-entire-tree-column-with-column_invisible/" rel="prev" title="Hiding entire tree column with column_invisible">Предыдущая запись</a>
+                <a href="../new-xpath-element-named-move/" rel="prev" title='New xpath element named "move"'>Previous post</a>
             </li>
         </ul></nav></aside><section class="comments"><h2>
-<i class="mdi-communication-forum"></i>Комментарии</h2>
+<i class="mdi-communication-forum"></i>Comments</h2>
         <hr>
 <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="blog-odooist-com",
-            disqus_url="http://blog.odooist.com/ru/posts/new-xpath-element-named-move/",
-        disqus_title="New xpath element named \"move\"",
-        disqus_identifier="cache/posts/new-xpath-element-named-move.html",
+            disqus_url="http://blog.odooist.com/posts/forms-initial-mode/",
+        disqus_title="Form's initial mode",
+        disqus_identifier="cache/posts/forms-initial-mode.html",
         disqus_config = function () {
-            this.language = "ru";
+            this.language = "en";
         };
         (function() {
             var dsq = document.createElement('script'); dsq.async = true;
@@ -158,7 +147,7 @@ new fields.</p>
 </div>
 
 
-            <script src="../../../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+            <script src="../../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_more">Share</a>
 <ul>
 <li>
@@ -198,7 +187,7 @@ new fields.</p>
                 $("nav.menu, ul").toggleClass('responsive', '');
             }
         </script><!-- fancy dates --><script>
-    moment.locale("ru");
+    moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><script>
     baguetteBox.run('div#content', {

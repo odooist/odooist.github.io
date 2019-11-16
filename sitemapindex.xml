@@ -7,62 +7,78 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://blog.odooist.com/categories/110.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/categories/120.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/categories/inherit.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/categories/irattachment.xml</loc>
+  <lastmod>2019-11-16T03:59:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/categories/maintainance.xml</loc>
+  <lastmod>2019-11-16T03:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/categories/views.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T04:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/categories/xml.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/galleries/rss.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/rss.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T04:05:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/110.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/120.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/inherit.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/ru/categories/irattachment.xml</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.odooist.com/ru/categories/maintainance.xml</loc>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/views.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T04:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/categories/xml.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/galleries/rss.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T03:55:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/ru/rss.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T04:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.odooist.com/sitemap.xml</loc>
-  <lastmod>2019-11-15T21:03:00Z</lastmod>
+  <lastmod>2019-11-16T04:05:00Z</lastmod>
  </sitemap>
 </sitemapindex>
