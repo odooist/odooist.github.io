@@ -75,11 +75,47 @@ og: http://ogp.me/ns#
 in read mode.</p>
 <p>When you click the <code class="docutils literal">Create</code> button from a tree view, a new record form view is opened
 in edit mode (how otherwise? :-)</p>
-<p>But sometimes it's more usable to open an existing immediately record in edit mode.</p>
-<p>This can be done using <code class="docutils literal">form</code> option <code class="docutils literal">initial_mode</code> like is shown in the following example:</p>
-<pre class="code xml"><a name="rest_code_f2747803f2e84a64b7b07c0908bd32a6-1"></a><span class="nt">&lt;form</span> <span class="na">options=</span><span class="s">"{'initial_mode': 'view'}"</span><span class="nt">&gt;</span>
+<p>But sometimes it's more usable to immediately open an existing record in edit mode.</p>
+<p>This can be done using <code class="docutils literal">form</code> option <code class="docutils literal">initial_mode</code>.</p>
+<p>In different Odoo versions this can be done in different ways:</p>
+<div class="section" id="id1">
+<h2>10.0</h2>
+<p>In this version it can work in form declaration
+(by chance as <a class="reference external" href="https://github.com/odoo/odoo/issues/22353">developers say</a>)
+like in the following example:</p>
+<pre class="code xml"><a name="rest_code_a48725e744924159998d37254391b81a-1"></a><span class="nt">&lt;form</span> <span class="na">options=</span><span class="s">"{'initial_mode': 'edit'}"</span><span class="nt">&gt;</span>
 </pre>
-<p>This option is available in all Odoo versions.</p>
+<p>If transition from tree to form is done within python code:</p>
+<pre class="code python"><a name="rest_code_b679e242d91d4c50880042a2c02bc972-1"></a><span class="k">return</span> <span class="p">{</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-2"></a>    <span class="s1">'name'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-3"></a>    <span class="s1">'help'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">help</span><span class="p">,</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-4"></a>    <span class="s1">'type'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-5"></a>    <span class="s1">'views'</span><span class="p">:</span> <span class="p">[(</span><span class="n">form_id</span><span class="p">,</span> <span class="s1">'form'</span><span class="p">)],</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-6"></a>    <span class="s1">'view_mode'</span><span class="p">:</span> <span class="s1">'action.view_mode'</span><span class="p">,</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-7"></a>    <span class="s1">'target'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-8"></a>    <span class="s1">'context'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">context</span><span class="p">,</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-9"></a>    <span class="s1">'res_model'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">res_model</span><span class="p">,</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-10"></a>    <span class="s1">'flags'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'initial_mode'</span><span class="p">:</span> <span class="s1">'edit'</span><span class="p">},</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-11"></a>    <span class="s1">'res_id'</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">id</span>
+<a name="rest_code_b679e242d91d4c50880042a2c02bc972-12"></a><span class="p">}</span>
+</pre>
+<div class="section" id="id2">
+<h3>11.0, 12.0, ...</h3>
+<p>Next Odoo versions "fix" the above and now you should use <code class="docutils literal">context</code>:</p>
+<pre class="code python"><a name="rest_code_506b10388df8463db4a62163394a2f51-1"></a><span class="n">context</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-2"></a><span class="n">context</span><span class="p">[</span><span class="s1">'form_view_initial_mode'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'edit'</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-3"></a><span class="k">return</span> <span class="p">{</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-4"></a>    <span class="s1">'type'</span><span class="p">:</span> <span class="s1">'ir.actions.act_window'</span><span class="p">,</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-5"></a>    <span class="s1">'view_type'</span><span class="p">:</span> <span class="s1">'form'</span><span class="p">,</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-6"></a>    <span class="s1">'view_mode'</span><span class="p">:</span> <span class="s1">'form'</span><span class="p">,</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-7"></a>    <span class="s1">'res_model'</span><span class="p">:</span> <span class="s1">'your.model'</span><span class="p">,</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-8"></a>    <span class="s1">'res_id'</span><span class="p">:</span> <span class="n">your_object_id</span><span class="p">,</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-9"></a>    <span class="s1">'context'</span><span class="p">:</span> <span class="n">context</span><span class="p">,</span>
+<a name="rest_code_506b10388df8463db4a62163394a2f51-10"></a><span class="p">}</span>
+</pre>
+<p><span class="emoji">🙈</span></p>
+</div>
+</div>
 </div>
         </div>
         </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/new-xpath-element-named-move/" class="u-url">New xpath element named "move"</a></h1>

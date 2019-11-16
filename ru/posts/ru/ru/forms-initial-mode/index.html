@@ -82,10 +82,45 @@ og: http://ogp.me/ns#
 новой записи в режиме редактирования (а как иначе? :-)</p>
 <p>Но иногда с точки зрения юзабилити или по другим причинам необходимо сделать так,
 чтобы при переходе из вида списка в вид формы последняя открылась сразу в режиме редактирования.</p>
-<p>Делается это при помощи опции <code class="docutils literal">initial_mode</code> при декларации формы, пример:</p>
-<pre class="code xml"><a name="rest_code_a2b484a5c3434e85bb26a1404b80d7de-1"></a><span class="nt">&lt;form</span> <span class="na">options=</span><span class="s">"{'initial_mode': 'view'}"</span><span class="nt">&gt;</span>
+<p>Делается это при помощи опции формы <code class="docutils literal">initial_mode</code>. Возможные значения: <code class="docutils literal">view</code> или <code class="docutils literal">edit</code>.</p>
+<p>Данная опция доступна во всех вериях Odoo, но в разных версиях работает по-разному.</p>
+<div class="section" id="id1">
+<h2>10.0</h2>
+<p>В данной версии это работает при декларации формы
+(и по <a class="reference external" href="https://github.com/odoo/odoo/issues/22353">словам разработчиков</a>, это случайно), пример:</p>
+<pre class="code xml"><a name="rest_code_2b6a76104db047b99c7a69e3427eac25-1"></a><span class="nt">&lt;form</span> <span class="na">options=</span><span class="s">"{'initial_mode': 'edit'}"</span><span class="nt">&gt;</span>
 </pre>
-<p>Данная опция доступна во всех вериях Odoo.</p>
+<p>Если переход в другую форму делается из кода, то используется такая форма:</p>
+<pre class="code python"><a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-1"></a><span class="k">return</span> <span class="p">{</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-2"></a>    <span class="s1">'name'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-3"></a>    <span class="s1">'help'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">help</span><span class="p">,</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-4"></a>    <span class="s1">'type'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-5"></a>    <span class="s1">'views'</span><span class="p">:</span> <span class="p">[(</span><span class="n">form_id</span><span class="p">,</span> <span class="s1">'form'</span><span class="p">)],</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-6"></a>    <span class="s1">'view_mode'</span><span class="p">:</span> <span class="s1">'action.view_mode'</span><span class="p">,</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-7"></a>    <span class="s1">'target'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-8"></a>    <span class="s1">'context'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">context</span><span class="p">,</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-9"></a>    <span class="s1">'res_model'</span><span class="p">:</span> <span class="n">action</span><span class="o">.</span><span class="n">res_model</span><span class="p">,</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-10"></a>    <span class="s1">'flags'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'initial_mode'</span><span class="p">:</span> <span class="s1">'edit'</span><span class="p">},</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-11"></a>    <span class="s1">'res_id'</span><span class="p">:</span> <span class="n">record</span><span class="o">.</span><span class="n">id</span>
+<a name="rest_code_4afcf11356064af2b71f5a2e875ed7f3-12"></a><span class="p">}</span>
+</pre>
+</div>
+<div class="section" id="id3">
+<h2>11.0, 12.0, ...</h2>
+<p>В следующих после 10.0 версиях Odoo необходимо использовать <code class="docutils literal">context</code>. Например:</p>
+<pre class="code python"><a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-1"></a><span class="n">context</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-2"></a><span class="n">context</span><span class="p">[</span><span class="s1">'form_view_initial_mode'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'edit'</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-3"></a><span class="k">return</span> <span class="p">{</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-4"></a>    <span class="s1">'type'</span><span class="p">:</span> <span class="s1">'ir.actions.act_window'</span><span class="p">,</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-5"></a>    <span class="s1">'view_type'</span><span class="p">:</span> <span class="s1">'form'</span><span class="p">,</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-6"></a>    <span class="s1">'view_mode'</span><span class="p">:</span> <span class="s1">'form'</span><span class="p">,</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-7"></a>    <span class="s1">'res_model'</span><span class="p">:</span> <span class="s1">'your.model'</span><span class="p">,</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-8"></a>    <span class="s1">'res_id'</span><span class="p">:</span> <span class="n">your_object_id</span><span class="p">,</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-9"></a>    <span class="s1">'context'</span><span class="p">:</span> <span class="n">context</span><span class="p">,</span>
+<a name="rest_code_f30ea2cf135348d292ac70f1fdb46d00-10"></a><span class="p">}</span>
+</pre>
+<p><span class="emoji">🙈</span></p>
+</div>
 </div>
     </div>
     <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
