@@ -225,16 +225,16 @@ THEME_CONFIG = {
 #     )
 
 POSTS = (
-    ("posts/*.rst", "posts", "post.tmpl"),
-    ("posts/*.md", "posts", "post.tmpl"),
-    ("posts/*.txt", "posts", "post.tmpl"),
-    ("posts/*.html", "posts", "post.tmpl"),
+    ("posts/*.rst", {"en": "posts", "ru": "posts/ru"}, "post.tmpl"),
+    #("posts/*.md", "posts", "post.tmpl"),
+    #("posts/*.txt", "posts", "post.tmpl"),
+    #("posts/*.html", "posts", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst", "pages", "page.tmpl"),
-    ("pages/*.md", "pages", "page.tmpl"),
-    ("pages/*.txt", "pages", "page.tmpl"),
-    ("pages/*.html", "pages", "page.tmpl"),
+    #("pages/*.md", "pages", "page.tmpl"),
+    #("pages/*.txt", "pages", "page.tmpl"),
+    #("pages/*.html", "pages", "page.tmpl"),
 )
 
 
@@ -345,7 +345,7 @@ COMPILERS = {
 # untranslated posts.
 # If this is set to False, then posts that are not translated to a language
 # LANG will not be visible at all in the pages in that language.
-# SHOW_UNTRANSLATED_POSTS = True
+SHOW_UNTRANSLATED_POSTS = False
 
 # Nikola supports logo display.  If you have one, you can put the URL here.
 # Final output is <img src="LOGO_URL" id="logo" alt="BLOG_TITLE">.
