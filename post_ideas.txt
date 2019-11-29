@@ -1,0 +1,2 @@
+All field attributes:
+https://github.com/odoo/odoo/blob/ca9a733b27a1680403961eaa13cc62e5aa58a8fb/odoo/fields.py#L290
