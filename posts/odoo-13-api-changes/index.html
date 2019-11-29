@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Odoo 13 API changes | Odoo Open Treasures</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../ru/rss.xml">
+<link rel="canonical" href="http://blog.odooist.com/posts/odoo-13-api-changes/">
+<!--[if lt IE 9]>
+            <script src="../../assets/js/html5shiv.min.js"></script>
+            <script src="../../assets/js/respond.min.js"></script>
+        <![endif]--><meta name="author" content="Odooist">
+<meta name="robots" content="noindex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@odooist">
+<meta name="twitter:creator" content="@odooist">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav style="background-color: #704e68;" class="navbar navbar-custom header-panel shadow-z-3" role="navigation"><div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-3">
+            <h1 class="title-blog">
+                <a href="http://blog.odooist.com/">
+                        <span id="blog-title">Odoo Open Treasures</span>
+                    </a>
+            </h1>
+          </div>
+          <div class="col-xs-9">
+            <a id="hamburger" class="btn btn-raised" href="javascript:void(0);" onclick="menuToggle();">☰</a>
+          </div>
+        </div>
+      </div>
+<!-- /.container-fluid -->
+</nav><div class="container-fluid main" id="content" role="main">
+        <div class="row">
+            <nav class="col-xs-12 col-sm-3 menu"><ul>
+<li class="withripple"><a href="http://odooist.com">Back to main site</a></li>
+                <li class="withripple"><a href="../../archive.html">Archive</a></li>
+                <li class="withripple"><a href="../../categories/">Tags</a></li>
+                <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
+
+                    
+                </ul>
+<ul>
+<li>            </li>
+<li><a href="http://blog.odooist.com/ru/" rel="alternate" hreflang="ru">Русский</a></li>
+
+                    
+                </ul>
+<img src="../../images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
+                <div class="col-xs-12 col-md-11 content-material">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Odoo 13 API changes</a></h1>
+<hr>
+<div class="metadata">
+            <span class="byline author vcard">
+                <a href=".">
+                        <i class="mdi-action-face-unlock"></i>
+                    Odooist
+                </a>
+            </span>
+            <span class="dateline">
+                <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
+                    <time class="published dt-published" datetime="2019-11-16T12:30:17+01:00" itemprop="datePublished" title="2019-11-16 12:30">2019-11-16 12:30</time></a>
+            </span>
+                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/odoo-13-api-changes.html">Comments</a>
+
+</span>
+        </div>
+        
+        <hr></header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>So, Odoo 13.0 is here. And we have to upgrade all our 12.0 modules... Let's go!</p>
+<p>In this post I will share my experience in upgrading my addons from 12.0 to 13.0.</p>
+<div class="section" id="api-decorators-eol">
+<h2>@api decorators - EOL</h2>
+<ul class="simple">
+<li><p>@api.multi</p></li>
+<li><p>@api.one</p></li>
+<li><p>@api.returns</p></li>
+<li><p>@api.cr</p></li>
+<li><p>@api.model_cr</p></li>
+<li><p>@api.guess</p></li>
+<li><p>@api.noguess</p></li>
+</ul>
+<p>all the above decorators are removed from the code. Now every method is multi-record by default.
+We have to remove them from the code.</p>
+</div>
+<div class="section" id="compute-methods">
+<h2>Compute methods</h2>
+<p>Check that all "compute" methods of non-stored computed fields assign a value
+in any case to the field, even if it is a falsy one.
+(<a class="reference external" href="https://github.com/odoo/odoo/pull/36743/commits/2e43bfc1c4b2f61e0459614f61f90a77dc3b7233">https://github.com/odoo/odoo/pull/36743/commits/2e43bfc1c4b2f61e0459614f61f90a77dc3b7233</a>).</p>
+</div>
+<div class="section" id="sudo-changes">
+<h2>sudo() changes</h2>
+<p>Replace sudo(user): "deprecated use of sudo(user), use with_user(user) instead"</p>
+</div>
+<div class="section" id="new-field-type-image">
+<h2>New field type Image.</h2>
+<p>Takes two additional attributes:
+* max_width
+* max_height
+If at least one of max_width / max_height is provided, then the image is resized on create()/write()</p>
+</div>
+<div class="section" id="many2onereference">
+<h2>Many2oneReference</h2>
+<p>New field type Many2oneReference is added for cases where the model/ID
+(res_model, res_id) pair is stored. Takes one additional attribute:
+model_field - name of the field on the current model which stores the model name (res_model).</p>
+</div>
+<div class="section" id="uknown-fields-throw-exception">
+<h2>Uknown fields throw exception</h2>
+<p>In previous versions if you have an uknown field in create or write methods Odoo issued
+a warning and ignored this field. In 13.0 it now gives an error and fails.</p>
+</div>
+<div class="section" id="track-visibility-changes">
+<h2>track_visibility changes</h2>
+<p>This is only applicable if <cite>mail</cite> module is installed.
+track_visibility field attribute is replaced with tracking=True|False.
+If tracking is an integer, then its value is also used as the sequence
+(replacement of track_sequence).</p>
+</div>
+<div class="section" id="font-awesome-changes">
+<h2>Font Awesome changes</h2>
+<p>Some of the Font Awesome (FA) icons have changed their name as now Odoo uses
+FA v5, so you might need to change them in your module views.
+Check the changed names in
+<a class="reference external" href="https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4#name-changes">https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4#name-changes</a>.</p>
+</div>
+<div class="section" id="oldname-attribute">
+<h2>oldname attribute</h2>
+<p>Remove all the oldname field attributes in the code. If they were added in previous
+version, they have served their function any way, and now in this version it's
+not supported, so if you have the need, create a migration script and use
+openupgradelib's rename_fields method.</p>
+</div>
+<div class="section" id="remove-view-type-tag">
+<h2>Remove view_type tag</h2>
+<p>Remove view_type tag on action window XML definition. It's now always form
+(tree is not supported since 11.0 any way).</p>
+</div>
+<div class="section" id="multi-field-in-ir-actions-act-window">
+<h2>multi field in ir.actions.act_window</h2>
+<p>Remove multi field from ir.actions.act_window models.
+Now you have binding_view_types field for indicating in which
+view the action will be available: list, form or empty for both.
+If declaring the action through the accelerator tag &lt;act_window&gt;,
+then use the attribute binding_views.
+More reference in
+<a class="reference external" href="https://github.com/odoo/odoo/pull/24738/commits/33d51480688065e367eb646f12b89d721749cac9">https://github.com/odoo/odoo/pull/24738/commits/33d51480688065e367eb646f12b89d721749cac9</a>.</p>
+</div>
+<div class="section" id="archive-unarchive-buttons">
+<h2>Archive / Unarchive buttons</h2>
+<p>If having an smart-button for active field, with widget toggle_button,
+the archive/unarchive actions are available without doing anything more,
+so you can remove it. And the new paradigm is to put instead a ribbon
+when archived with the code</p>
+<pre class="code xml"><a name="rest_code_cf73d2c7f8eb4511b86413c4373b91db-1"></a><span class="nt">&lt;widget</span>
+<a name="rest_code_cf73d2c7f8eb4511b86413c4373b91db-2"></a>    <span class="na">name=</span><span class="s">"web_ribbon"</span>
+<a name="rest_code_cf73d2c7f8eb4511b86413c4373b91db-3"></a>    <span class="na">text=</span><span class="s">"Archived"</span>
+<a name="rest_code_cf73d2c7f8eb4511b86413c4373b91db-4"></a>    <span class="na">bg_color=</span><span class="s">"bg-danger"</span>
+<a name="rest_code_cf73d2c7f8eb4511b86413c4373b91db-5"></a>    <span class="na">attrs=</span><span class="s">"{'invisible': [('active', '=', True)]}"</span><span class="nt">/&gt;</span>
+</pre>
+<p>Testing</p>
+<p><code class="docutils literal">@at_install</code> and <code class="docutils literal">@post_install</code> test decorators, which where deprecated in v12,
+are removed, @tagged should be used instead, e.g.:</p>
+<pre class="code python"><a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-1"></a><span class="c1"># Equivalent to `@at_install(True)`</span>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-2"></a><span class="nd">@tagged</span><span class="p">(</span><span class="s1">'at_install'</span><span class="p">)</span>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-3"></a>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-4"></a><span class="c1"># Equivalent to `@at_install(False)`</span>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-5"></a><span class="nd">@tagged</span><span class="p">(</span><span class="s1">'-at_install'</span><span class="p">)</span>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-6"></a>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-7"></a><span class="c1"># Equivalent to `@post_install(True)`</span>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-8"></a><span class="nd">@tagged</span><span class="p">(</span><span class="s1">'post_install'</span><span class="p">)</span>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-9"></a>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-10"></a><span class="c1"># Equivalent to `@post_install(False)`</span>
+<a name="rest_code_c3f66fff6ac3479997132c81c9b08fab-11"></a><span class="nd">@tagged</span><span class="p">(</span><span class="s1">'-post_install'</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="links">
+<h2>Links</h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.odoo.com/forum/help-1/question/odoo-13-features-148369#answer-148370">Odoo 13 features</a></p></li>
+<li><p><a class="reference external" href="https://naglis.me/post/odoo-13-changelog/">https://naglis.me/post/odoo-13-changelog/</a></p></li>
+<li><p><a class="reference external" href="https://github.com/OCA/maintainer-tools/wiki/Migration-to-version-13.0">https://github.com/OCA/maintainer-tools/wiki/Migration-to-version-13.0</a></p></li>
+</ul>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav></nav></aside><section class="comments"><h2>
+<i class="mdi-communication-forum"></i>Comments</h2>
+        <hr>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="blog-odooist-com",
+            disqus_url="http://blog.odooist.com/posts/odoo-13-api-changes/",
+        disqus_title="Odoo 13 API changes",
+        disqus_identifier="cache/posts/odoo-13-api-changes.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+            </div>
+        </div>
+        <button class="btn btn-fab btn-raised btn-material-green btn-footer" data-toggle="modal" data-target="#footer-dialog">
+            <i class="mdi-communication-message"></i>
+        </button>
+        <div id="footer-dialog" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Odoo Open Treasures credits</h4>
+              </div>
+              <div class="modal-body">
+                    Contents © 2019         <a href="mailto:odooist@gmail.com">Odooist</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+                    
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="source-button">
+        </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script><!-- End of social buttons --><script>
+
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+            });
+
+            $(window).on("resize", function() {
+                if($(window).width() > 767) {
+                  $("html, body").height($(window).height());
+                  $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight() - 76 );
+                  $(".posts-material").height($(window).height());
+                } else {
+                  $("html, body").css('height', '');
+                  $(".main, .menu").css('height', '');
+                  $(".posts-material").css('height', '');
+                }
+            }).trigger("resize");
+
+            function menuToggle() {
+                $("nav.menu, ul").toggleClass('responsive', '');
+            }
+        </script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-153616088-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153616088-1');
+</script>
+</body>
+</html>

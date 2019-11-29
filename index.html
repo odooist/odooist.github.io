@@ -14,7 +14,7 @@ og: http://ogp.me/ns#
 <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
-        <![endif]--><link rel="prefetch" href="posts/forms-initial-mode/" type="text/html">
+        <![endif]--><link rel="prefetch" href="posts/working-with-savepoint/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -57,7 +57,60 @@ og: http://ogp.me/ns#
 
     <div class="postindex well post-material ">
     
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/forms-initial-mode/" class="u-url">Form's initial mode</a></h1>
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/working-with-savepoint/" class="u-url">Working with Savepoint</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
+                        <i class="mdi-action-face-unlock"></i>
+                    Odooist
+                </span>
+                <span class="dateline"><a href="posts/working-with-savepoint/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-21T08:35:18+01:00" title="2019-11-21 08:35">2019-11-21 08:35</time></a></span>
+                    <span class="commentline">            <a href="posts/working-with-savepoint/#disqus_thread" data-disqus-identifier="cache/posts/working-with-savepoint.html">Comments</a>
+
+</span>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
+<p>Here I'll write about Odoo transactions.</p>
+<p>It's a general recommendation to let Odoo manage transactions and Odoo does it
+quite well.</p>
+<p>By default a new transaction is opened on every HTTP request thus covering the whole bunch of
+operations the method executed.</p>
+<p>If an exception happends during any method execution the whole transation is
+rolled back and error is returned.</p>
+<p>But sometimes we need to keep some amount of work done in the middle of request and if the rest of the request fails we are saved.</p>
+<p>This is done by using <code class="docutils literal">self.env.cr.commit()</code> call.</p>
+<div class="section" id="savepoint">
+<h2>Savepoint</h2>
+<p>Savepoint defines a new saving point in current transation. So when an error occurs the transation
+is rolled back to that point.</p>
+<p>If no error happens <code class="docutils literal">RELEASE SAVEPOINT</code> is called to  keep the effects of commands
+executed after the savepoint was established.</p>
+<p>Here is the code snippet from <code class="docutils literal">odoo/sql_db.py</code>:</p>
+<pre class="code python"><a name="rest_code_50ec7c82153a443f91a175e329d6d67a-1"></a><span class="nd">@contextmanager</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-2"></a><span class="nd">@check</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-3"></a><span class="k">def</span> <span class="nf">savepoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-4"></a>    <span class="sd">"""context manager entering in a new savepoint"""</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-5"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-6"></a>    <span class="k">if</span> <span class="n">flush</span><span class="p">:</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-7"></a>        <span class="n">flush_env</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-8"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">'SAVEPOINT "</span><span class="si">%s</span><span class="s1">"'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-9"></a>    <span class="k">try</span><span class="p">:</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-10"></a>        <span class="k">yield</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-11"></a>        <span class="k">if</span> <span class="n">flush</span><span class="p">:</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-12"></a>            <span class="n">flush_env</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-13"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-14"></a>        <span class="k">if</span> <span class="n">flush</span><span class="p">:</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-15"></a>            <span class="n">clear_env</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">'ROLLBACK TO SAVEPOINT "</span><span class="si">%s</span><span class="s1">"'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-17"></a>        <span class="k">raise</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-18"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_50ec7c82153a443f91a175e329d6d67a-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">'RELEASE SAVEPOINT "</span><span class="si">%s</span><span class="s1">"'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+        </div>
+        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/forms-initial-mode/" class="u-url">Form's initial mode</a></h1>
             <div class="metadata">
                 <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
@@ -273,6 +326,12 @@ logic implemented in Python?</p>
         captions: function(element) {
             return element.getElementsByTagName('img')[0].alt;
     }});
-    </script>
+    </script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-153616088-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153616088-1');
+</script>
 </body>
 </html>
