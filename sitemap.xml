@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>http://blog.odooist.com/archive.html</loc>
-  <lastmod>2019-11-29T19:50:00Z</lastmod>
+  <lastmod>2019-12-28T11:40:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/</loc>
-  <lastmod>2019-11-16T04:07:00Z</lastmod>
+  <lastmod>2019-12-28T11:40:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/110/</loc>
@@ -28,6 +28,14 @@
  <url>
   <loc>http://blog.odooist.com/categories/120/</loc>
   <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/categories/controller/</loc>
+  <lastmod>2019-12-28T11:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/categories/i18n/</loc>
+  <lastmod>2019-12-28T11:40:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/categories/inherit/</loc>
@@ -56,6 +64,10 @@
  <url>
   <loc>http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/</loc>
   <lastmod>2019-11-16T03:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.odooist.com/posts/how-to-set-language-for-controller/</loc>
+  <lastmod>2019-12-28T11:40:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.odooist.com/posts/new-xpath-element-named-move/</loc>

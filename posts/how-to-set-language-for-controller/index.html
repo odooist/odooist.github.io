@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to set language for controller | Odoo Open Treasures</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../ru/rss.xml">
+<link rel="canonical" href="http://blog.odooist.com/posts/how-to-set-language-for-controller/">
+<!--[if lt IE 9]>
+            <script src="../../assets/js/html5shiv.min.js"></script>
+            <script src="../../assets/js/respond.min.js"></script>
+        <![endif]--><meta name="author" content="Odooist">
+<link rel="prev" href="../working-with-savepoint/" title="Working with Savepoint" type="text/html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@odooist">
+<meta name="twitter:creator" content="@odooist">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav style="background-color: #704e68;" class="navbar navbar-custom header-panel shadow-z-3" role="navigation"><div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-3">
+            <h1 class="title-blog">
+                <a href="http://blog.odooist.com/">
+                        <span id="blog-title">Odoo Open Treasures</span>
+                    </a>
+            </h1>
+          </div>
+          <div class="col-xs-9">
+            <a id="hamburger" class="btn btn-raised" href="javascript:void(0);" onclick="menuToggle();">☰</a>
+          </div>
+        </div>
+      </div>
+<!-- /.container-fluid -->
+</nav><div class="container-fluid main" id="content" role="main">
+        <div class="row">
+            <nav class="col-xs-12 col-sm-3 menu"><ul>
+<li class="withripple"><a href="http://odooist.com">Back to main site</a></li>
+                <li class="withripple"><a href="../../archive.html">Archive</a></li>
+                <li class="withripple"><a href="../../categories/">Tags</a></li>
+                <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
+
+                    
+                </ul>
+<ul>
+<li>            </li>
+<li><a href="http://blog.odooist.com/ru/" rel="alternate" hreflang="ru">Русский</a></li>
+
+                    
+                </ul>
+<img src="../../images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
+                <div class="col-xs-12 col-md-11 content-material">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">How to set language for controller</a></h1>
+<hr>
+<div class="metadata">
+            <span class="byline author vcard">
+                <a href=".">
+                        <i class="mdi-action-face-unlock"></i>
+                    Odooist
+                </a>
+            </span>
+            <span class="dateline">
+                <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
+                    <time class="published dt-published" datetime="2019-12-28T12:25:16+01:00" itemprop="datePublished" title="2019-12-28 12:25">2019-12-28 12:25</time></a>
+            </span>
+                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/how-to-set-language-for-controller.html">Comments</a>
+
+</span>
+        </div>
+        
+        <hr></header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Imagine that you have a signup procedure, like this:</p>
+<pre class="code python"><a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-1"></a><span class="k">class</span> <span class="nc">MobileAppBaseController</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+<a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-2"></a>  <span class="nd">@http.route</span><span class="p">(</span><span class="s1">'/barrier/verify_user/1'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'json'</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">'public'</span><span class="p">,</span>
+<a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-3"></a>              <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">],</span> <span class="n">csrf</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-4"></a>  <span class="k">def</span> <span class="nf">verify_user_step_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-5"></a>      <span class="n">user_name</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">jsonrequest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'username'</span><span class="p">)</span>
+<a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-6"></a>      <span class="k">if</span> <span class="ow">not</span> <span class="n">user_name</span><span class="p">:</span>
+<a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-7"></a>          <span class="k">return</span> <span class="p">{</span><span class="s1">'status'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s1">'msg'</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s1">'User name not sent.'</span><span class="p">)}</span>
+<a name="rest_code_dffdd4b638c9456d89b1c0f7dbd61622-8"></a>      <span class="o">...</span>
+</pre>
+<p>When user name is not specified in JSON request it returns 'User name not sent' message.</p>
+<p>Now we want this message to be returned in different languages.</p>
+<p>After learning fron <em>odoo/tools/translation.py</em> and <em>odoo/http.py</em> two solutions where found.</p>
+<div class="section" id="language-selection-by-client">
+<h2>1. Language selection by client</h2>
+<p>To request messages translated into specified language Accept-Language header is used:</p>
+<pre class="code sh"><a name="rest_code_a81d41ce1073403aa20d236c1e7ecc7a-1"></a>http -vv --json <span class="s1">'http://127.0.0.1:38069/barrier/verify_user/1'</span> <span class="s2">"_username=user"</span> <span class="s1">'Accept-Language:ru'</span>
+</pre>
+<p>Result:</p>
+<pre class="code sh"><a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-1"></a>odooist@MacBook-Pro app % http -v --json <span class="s1">'http://127.0.0.1:38069/barrier/verify_user/1'</span> <span class="s2">"_username=user"</span> <span class="s1">'Accept-Language:ru'</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-2"></a>POST /barrier/verify_user/1 HTTP/1.1
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-3"></a>Accept: application/json, */*
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-4"></a>Accept-Encoding: gzip, deflate
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-5"></a>Accept-Language: ru
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-6"></a>Connection: keep-alive
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-7"></a>Content-Length: <span class="m">21</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-8"></a>Content-Type: application/json
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-9"></a>Host: <span class="m">127</span>.0.0.1:38069
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-10"></a>User-Agent: HTTPie/1.0.3
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-11"></a>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-12"></a> <span class="o">{</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-13"></a>    <span class="s2">"_username"</span>: <span class="s2">"user"</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-14"></a> <span class="o">}</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-15"></a>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-16"></a>HTTP/1.0 <span class="m">200</span> OK
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-17"></a>Content-Length: <span class="m">224</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-18"></a>Content-Type: application/json
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-19"></a>Date: Sat, <span class="m">28</span> Dec <span class="m">2019</span> <span class="m">11</span>:33:49 GMT
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-20"></a>Server: Werkzeug/0.16.0 Python/3.5.3
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-21"></a>Set-Cookie: <span class="nv">session_id</span><span class="o">=</span>7b62bc401c248052e8a0ffb7626b7122340f774a<span class="p">;</span> <span class="nv">Expires</span><span class="o">=</span>Fri, <span class="m">27</span>-Mar-2020 <span class="m">11</span>:33:49 GMT<span class="p">;</span> Max-Age<span class="o">=</span><span class="m">7776000</span><span class="p">;</span> HttpOnly<span class="p">;</span> <span class="nv">Path</span><span class="o">=</span>/
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-22"></a>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-23"></a><span class="o">{</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-24"></a>  <span class="s2">"id"</span>: null,
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-25"></a>  <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-26"></a>  <span class="s2">"result"</span>: <span class="o">{</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-27"></a>      <span class="s2">"msg"</span>: <span class="s2">"Имя пользователя не отослано."</span>,
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-28"></a>      <span class="s2">"status"</span>: <span class="nb">false</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-29"></a>  <span class="o">}</span>
+<a name="rest_code_c98b04c3539245a98816f9a10ddb8c4d-30"></a><span class="o">}</span>
+</pre>
+<p>As you can see in request headers Accept-Language is set to <em>ru</em>, and in result we got msg translated.</p>
+</div>
+<div class="section" id="define-response-language-at-server">
+<h2>2. Define response language at server</h2>
+<p>In <em>odoo/tools/translation.py</em> interesting code was found:</p>
+<pre class="code python"><a name="rest_code_43bbe7e098114a0599efe7a694f44c68-1"></a><span class="k">def</span> <span class="nf">_get_lang</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-2"></a>    <span class="c1"># try, in order: context.get('lang'), kwargs['context'].get('lang'),</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-3"></a>    <span class="c1"># self.env.lang, self.localcontext.get('lang'), request.env.lang</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-4"></a>    <span class="n">lang</span> <span class="o">=</span> <span class="bp">None</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-5"></a>    <span class="k">if</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'context'</span><span class="p">):</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-6"></a>        <span class="n">lang</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="s1">'context'</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'lang'</span><span class="p">)</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-8"></a>        <span class="n">kwargs</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'kwargs'</span><span class="p">,</span> <span class="p">{})</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-9"></a>        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'context'</span><span class="p">):</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-10"></a>            <span class="n">lang</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'context'</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'lang'</span><span class="p">)</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-11"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-12"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'self'</span><span class="p">)</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-13"></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">'env'</span><span class="p">):</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-14"></a>            <span class="n">lang</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">lang</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-15"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-16"></a>            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">'localcontext'</span><span class="p">):</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-17"></a>                <span class="n">lang</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">localcontext</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'lang'</span><span class="p">)</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-18"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-19"></a>            <span class="k">try</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-20"></a>                <span class="kn">from</span> <span class="nn">odoo.http</span> <span class="kn">import</span> <span class="n">request</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-21"></a>                <span class="n">lang</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">lang</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-22"></a>            <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-23"></a>                <span class="k">pass</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-24"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">lang</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-25"></a>            <span class="c1"># Last resort: attempt to guess the language of the user</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-26"></a>            <span class="c1"># Pitfall: some operations are performed in sudo mode, and we</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-27"></a>            <span class="c1">#          don't know the original uid, so the language may</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-28"></a>            <span class="c1">#          be wrong when the admin language differs.</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-29"></a>            <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">dummy</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cr</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">allow_create</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-30"></a>            <span class="n">uid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_uid</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-31"></a>            <span class="k">if</span> <span class="n">cr</span> <span class="ow">and</span> <span class="n">uid</span><span class="p">:</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-32"></a>                <span class="n">env</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="p">{})</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-33"></a>                <span class="n">lang</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">'res.users'</span><span class="p">]</span><span class="o">.</span><span class="n">context_get</span><span class="p">()[</span><span class="s1">'lang'</span><span class="p">]</span>
+<a name="rest_code_43bbe7e098114a0599efe7a694f44c68-34"></a>    <span class="k">return</span> <span class="n">lang</span>
+</pre>
+<p>So to define server response language we had to put a context dictionary on a
+function level like this (line 5):</p>
+<table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#rest_code_173df031def64d8097e798c573744558-1">1</a>
+<a href="#rest_code_173df031def64d8097e798c573744558-2">2</a>
+<a href="#rest_code_173df031def64d8097e798c573744558-3">3</a>
+<a href="#rest_code_173df031def64d8097e798c573744558-4">4</a>
+<a href="#rest_code_173df031def64d8097e798c573744558-5">5</a>
+<a href="#rest_code_173df031def64d8097e798c573744558-6">6</a>
+<a href="#rest_code_173df031def64d8097e798c573744558-7">7</a>
+<a href="#rest_code_173df031def64d8097e798c573744558-8">8</a></pre></div></td>
+<td class="code"><pre class="code python"><a name="rest_code_173df031def64d8097e798c573744558-1"></a>   <span class="k">class</span> <span class="nc">MobileAppBaseController</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+<a name="rest_code_173df031def64d8097e798c573744558-2"></a>     <span class="nd">@http.route</span><span class="p">(</span><span class="s1">'/barrier/verify_user/1'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'json'</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">'public'</span><span class="p">,</span>
+<a name="rest_code_173df031def64d8097e798c573744558-3"></a>                 <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">'POST'</span><span class="p">],</span> <span class="n">csrf</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_173df031def64d8097e798c573744558-4"></a>     <span class="k">def</span> <span class="nf">verify_user_step_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_173df031def64d8097e798c573744558-5"></a>         <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'language'</span><span class="p">:</span> <span class="s1">'ru_RU'</span><span class="p">}</span>
+<a name="rest_code_173df031def64d8097e798c573744558-6"></a>         <span class="n">user_name</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">jsonrequest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'username'</span><span class="p">)</span>
+<a name="rest_code_173df031def64d8097e798c573744558-7"></a>         <span class="k">if</span> <span class="ow">not</span> <span class="n">user_name</span><span class="p">:</span>
+<a name="rest_code_173df031def64d8097e798c573744558-8"></a>             <span class="k">return</span> <span class="p">{</span><span class="s1">'status'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s1">'msg'</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s1">'User name not sent.'</span><span class="p">)}</span>
+</pre></td>
+</tr></table>
+<p><strong>Notice</strong> that in the first case we added <em>Accept-Language: ru</em>, but in the second one we
+set language to <em>ru_RU</em>.</p>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/controller/" rel="tag">controller</a>
+            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/i18n/" rel="tag">i18n</a>
+        </div>
+
+            <ul class="pager">
+<li class="previous">
+                <a href="../working-with-savepoint/" rel="prev" title="Working with Savepoint">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments"><h2>
+<i class="mdi-communication-forum"></i>Comments</h2>
+        <hr>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="blog-odooist-com",
+            disqus_url="http://blog.odooist.com/posts/how-to-set-language-for-controller/",
+        disqus_title="How to set language for controller",
+        disqus_identifier="cache/posts/how-to-set-language-for-controller.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+            </div>
+        </div>
+        <button class="btn btn-fab btn-raised btn-material-green btn-footer" data-toggle="modal" data-target="#footer-dialog">
+            <i class="mdi-communication-message"></i>
+        </button>
+        <div id="footer-dialog" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Odoo Open Treasures credits</h4>
+              </div>
+              <div class="modal-body">
+                    Contents © 2019         <a href="mailto:odooist@gmail.com">Odooist</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+                    
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="source-button">
+        </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script><!-- End of social buttons --><script>
+
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+            });
+
+            $(window).on("resize", function() {
+                if($(window).width() > 767) {
+                  $("html, body").height($(window).height());
+                  $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight() - 76 );
+                  $(".posts-material").height($(window).height());
+                } else {
+                  $("html, body").css('height', '');
+                  $(".main, .menu").css('height', '');
+                  $(".posts-material").css('height', '');
+                }
+            }).trigger("resize");
+
+            function menuToggle() {
+                $("nav.menu, ul").toggleClass('responsive', '');
+            }
+        </script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-153616088-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153616088-1');
+</script>
+</body>
+</html>
