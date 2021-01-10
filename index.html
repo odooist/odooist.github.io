@@ -11,10 +11,11 @@ og: http://ogp.me/ns#
 <link rel="alternate" type="application/rss+xml" title="RSS (en)" href="rss.xml">
 <link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="ru/rss.xml">
 <link rel="canonical" href="http://blog.odooist.com/">
+<link rel="next" href="index-1.html" type="text/html">
 <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
-        <![endif]--><link rel="prefetch" href="posts/how-to-set-language-for-controller/" type="text/html">
+        <![endif]--><link rel="prefetch" href="posts/detect-upgrade-procedure/" type="text/html">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -57,7 +58,40 @@ og: http://ogp.me/ns#
 
     <div class="postindex well post-material ">
     
-        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/how-to-set-language-for-controller/" class="u-url">How to set language for controller</a></h1>
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/detect-upgrade-procedure/" class="u-url">Detect upgrade procedure</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
+                        <i class="mdi-action-face-unlock"></i>
+                    Odooist
+                </span>
+                <span class="dateline"><a href="posts/detect-upgrade-procedure/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2021-01-10T13:00:27+01:00" title="2021-01-10 13:00">2021-01-10 13:00</time></a></span>
+                    <span class="commentline">            <a href="posts/detect-upgrade-procedure/#disqus_thread" data-disqus-identifier="cache/posts/detect-upgrade-procedure.html">Comments</a>
+
+</span>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
+<p>In Odoo it is possible to define model records in XML data files.</p>
+<p>During module upgrade procedure Odoo reads XML datafiles and updates database records defined there.</p>
+<p>But what if we need to have a conditional update? So that we do not update the records if
+some condition is not met.</p>
+<p>To have this done we need to redefine <em>write</em> method for the model and put there the following:</p>
+<pre class="code python"><a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-1"></a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-2"></a>    <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-3"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'install_mode'</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-4"></a>                <span class="s1">'module'</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'your_module_name'</span><span class="p">:</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-5"></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'We are in upgrade procedure!'</span><span class="p">)</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-6"></a>            <span class="c1"># Check a condition</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-7"></a>            <span class="k">if</span> <span class="bp">False</span><span class="p">:</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-8"></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Ignoring updated record.'</span><span class="p">)</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-9"></a>            <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-10"></a>                <span class="nb">super</span><span class="p">(</span><span class="n">MyCustomModel</span><span class="p">,</span> <span class="n">rec</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-11"></a>    <span class="k">return</span> <span class="bp">True</span>
+</pre>
+</div>
+        </div>
+        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/how-to-set-language-for-controller/" class="u-url">How to set language for controller</a></h1>
             <div class="metadata">
                 <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
@@ -332,54 +366,13 @@ view.</p>
 new fields.</p>
 </div>
         </div>
-        </article><article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/hiding-entire-tree-column-with-column_invisible/" class="u-url">Hiding entire tree column with column_invisible</a></h1>
-            <div class="metadata">
-                <span class="byline author vcard">
-                        <i class="mdi-action-face-unlock"></i>
-                    Odooist
-                </span>
-                <span class="dateline"><a href="posts/hiding-entire-tree-column-with-column_invisible/" rel="bookmark">
-                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-15T12:15:55+01:00" title="2019-11-15 12:15">2019-11-15 12:15</time></a></span>
-                    <span class="commentline">            <a href="posts/hiding-entire-tree-column-with-column_invisible/#disqus_thread" data-disqus-identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html">Comments</a>
-
-</span>
-            </div>
-            <hr></header><div class="e-content entry-content">
-        <div>
-<p>We all know a way to hide a field in tree &amp; form views using <code class="docutils literal"><span class="pre">attrs={'invisible':</span> <span class="pre">[(...)]}</span></code>.</p>
-<p>We also know that we can hide <strong>entire column</strong> using <code class="docutils literal"><span class="pre">invisible="1"</span></code> attribute like this:</p>
-<pre class="code xml"><a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-1"></a><span class="nt">&lt;tree</span> <span class="na">decoration-warning=</span><span class="s">"event_input_mode == True"</span><span class="nt">&gt;</span>
-<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-2"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"event_input_mode"</span> <span class="na">invisible=</span><span class="s">"1"</span><span class="nt">/&gt;</span>
-<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"description"</span><span class="nt">/&gt;</span>
-<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-4"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"facility"</span> <span class="na">invisible=</span><span class="s">"context.get('hide_facility')"</span><span class="nt">/&gt;</span>
-<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-5"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"uid"</span><span class="nt">/&gt;</span>
-<a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-6"></a><span class="nt">&lt;/tree&gt;</span>
-</pre>
-<p>In the above example we need <code class="docutils literal">event_input_mode</code> column just to highlight a row if
-it have <code class="docutils literal">event_input_mode</code> set so we hide it with <code class="docutils literal"><span class="pre">invisible="1"</span></code>.</p>
-<p>We can also notice that we can use <code class="docutils literal">context</code> values in condition expression.
-In the above example if <code class="docutils literal">context</code> has <code class="docutils literal">hide_facility</code> key then entire column is hidden.</p>
-<div class="section" id="the-treasure">
-<h2>The treasure</h2>
-<p>But what if you need to hide entire column by a condition coming from complex business
-logic implemented in Python?</p>
-<p>Here <strong>column_invisible</strong> attribute comes!</p>
-<p>See this examples:</p>
-<pre class="code xml"><a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-1"></a><span class="nt">&lt;tree&gt;</span>
-<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-2"></a>    ...
-<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-3"></a>    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">"foo"</span> <span class="na">attrs=</span><span class="s">"{'column_invisible': [('parent.product_id', '!=', False)]}"</span><span class="nt">/&gt;</span>
-<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-4"></a>    ...
-<a name="rest_code_587fb9f953b8427fa3a2fc1a1d9bca7b-5"></a><span class="nt">&lt;/tree&gt;</span>
-</pre>
-<p>By digging the source code I can see <code class="docutils literal">column_invisible</code> was introduced in Odoo 11.0.</p>
-<p>Nice, but works <strong>only</strong> for <code class="docutils literal">many2one</code> and <code class="docutils literal">one2many</code> fields :-)</p>
-</div>
-</div>
-        </div>
         </article>
 </div>
-
-               <script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+        <nav class="postindexpager"><ul class="pager">
+<li class="next">
+                <a href="index-1.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
             </div>
         </div>
@@ -394,7 +387,7 @@ logic implemented in Python?</p>
                 <h4 class="modal-title">Odoo Open Treasures credits</h4>
               </div>
               <div class="modal-body">
-                    Contents © 2019         <a href="mailto:odooist@gmail.com">Odooist</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+                    Contents © 2021         <a href="mailto:odooist@gmail.com">Odooist</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
                     
               </div>
               <div class="modal-footer">

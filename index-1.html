@@ -4,20 +4,18 @@ og: http://ogp.me/ns#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="description" content="Odoo discovered secrets">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hiding entire tree column with column_invisible | Odoo Open Treasures</title>
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="../../rss.xml">
-<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="../../ru/rss.xml">
-<link rel="canonical" href="http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/">
+<title>Odoo Open Treasures (old posts, page 1) | Odoo Open Treasures</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS (en)" href="rss.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS (ru)" href="ru/rss.xml">
+<link rel="canonical" href="http://blog.odooist.com/index-1.html">
+<link rel="prev" href="." type="text/html">
 <!--[if lt IE 9]>
-            <script src="../../assets/js/html5shiv.min.js"></script>
-            <script src="../../assets/js/respond.min.js"></script>
-        <![endif]--><meta name="author" content="Odooist">
-<link rel="next" href="../new-xpath-element-named-move/" title='New xpath element named "move"' type="text/html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@odooist">
-<meta name="twitter:creator" content="@odooist">
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -43,9 +41,9 @@ og: http://ogp.me/ns#
         <div class="row">
             <nav class="col-xs-12 col-sm-3 menu"><ul>
 <li class="withripple"><a href="http://odooist.com">Back to main site</a></li>
-                <li class="withripple"><a href="../../archive.html">Archive</a></li>
-                <li class="withripple"><a href="../../categories/">Tags</a></li>
-                <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
+                <li class="withripple"><a href="archive.html">Archive</a></li>
+                <li class="withripple"><a href="categories/">Tags</a></li>
+                <li class="withripple"><a href="rss.xml">RSS feed</a></li>
 
                     
                 </ul>
@@ -55,28 +53,25 @@ og: http://ogp.me/ns#
 
                     
                 </ul>
-<img src="../../images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
+<img src="images/open-treasure.png"></nav><div class="posts-material col-xs-12 col-sm-9">
                 <div class="col-xs-12 col-md-11 content-material">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hiding entire tree column with column_invisible</a></h1>
-<hr>
-<div class="metadata">
-            <span class="byline author vcard">
-                <a href=".">
+
+    <div class="postindex well post-material ">
+    
+        <article class="h-entry post-text"><header><h1 class="p-name entry-title header"><a href="posts/hiding-entire-tree-column-with-column_invisible/" class="u-url">Hiding entire tree column with column_invisible</a></h1>
+            <div class="metadata">
+                <span class="byline author vcard">
                         <i class="mdi-action-face-unlock"></i>
                     Odooist
-                </a>
-            </span>
-            <span class="dateline">
-                <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
-                    <time class="published dt-published" datetime="2019-11-15T12:15:55+01:00" itemprop="datePublished" title="2019-11-15 12:15">2019-11-15 12:15</time></a>
-            </span>
-                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html">Comments</a>
+                </span>
+                <span class="dateline"><a href="posts/hiding-entire-tree-column-with-column_invisible/" rel="bookmark">
+                    <i class="mdi-device-access-time"></i><time class="published dt-published" datetime="2019-11-15T12:15:55+01:00" title="2019-11-15 12:15">2019-11-15 12:15</time></a></span>
+                    <span class="commentline">            <a href="posts/hiding-entire-tree-column-with-column_invisible/#disqus_thread" data-disqus-identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html">Comments</a>
 
 </span>
-        </div>
-        
-        <hr></header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
+            </div>
+            <hr></header><div class="e-content entry-content">
+        <div>
 <p>We all know a way to hide a field in tree &amp; form views using <code class="docutils literal"><span class="pre">attrs={'invisible':</span> <span class="pre">[(...)]}</span></code>.</p>
 <p>We also know that we can hide <strong>entire column</strong> using <code class="docutils literal"><span class="pre">invisible="1"</span></code> attribute like this:</p>
 <pre class="code xml"><a name="rest_code_ee345fe991a84a3482fdd2720fea7e2a-1"></a><span class="nt">&lt;tree</span> <span class="na">decoration-warning=</span><span class="s">"event_input_mode == True"</span><span class="nt">&gt;</span>
@@ -106,40 +101,14 @@ logic implemented in Python?</p>
 <p>Nice, but works <strong>only</strong> for <code class="docutils literal">many2one</code> and <code class="docutils literal">one2many</code> fields :-)</p>
 </div>
 </div>
-    </div>
-    <aside class="postpromonav"><nav><div itemprop="keywords" class="tags">
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/110/" rel="tag">11.0</a>
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/120/" rel="tag">12.0</a>
-            <a class="tag p-category btn btn-success btn-raised btn-sm" href="../../categories/views/" rel="tag">views</a>
         </div>
-
-            <ul class="pager">
-<li class="next">
-                <a href="../new-xpath-element-named-move/" rel="next" title='New xpath element named "move"'>Next post</a>
+        </article>
+</div>
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="." rel="prev">Newer posts</a>
             </li>
-        </ul></nav></aside><section class="comments"><h2>
-<i class="mdi-communication-forum"></i>Comments</h2>
-        <hr>
-<div id="disqus_thread"></div>
-        <script>
-        var disqus_shortname ="blog-odooist-com",
-            disqus_url="http://blog.odooist.com/posts/hiding-entire-tree-column-with-column_invisible/",
-        disqus_title="Hiding entire tree column with column_invisible",
-        disqus_identifier="cache/posts/hiding-entire-tree-column-with-column_invisible.html",
-        disqus_config = function () {
-            this.language = "en";
-        };
-        (function() {
-            var dsq = document.createElement('script'); dsq.async = true;
-            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-</noscript>
-    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-        </section></article><script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+        </ul></nav><script>var disqus_shortname="blog-odooist-com";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
             </div>
         </div>
@@ -168,7 +137,7 @@ logic implemented in Python?</p>
 </div>
 
 
-            <script src="../../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+            <script src="assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_more">Share</a>
 <ul>
 <li>
