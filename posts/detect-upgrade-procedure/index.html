@@ -4,6 +4,7 @@ og: http://ogp.me/ns#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="description" content="Conditional upgrades.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Detect upgrade procedure | Odoo Open Treasures</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -13,7 +14,8 @@ og: http://ogp.me/ns#
 <!--[if lt IE 9]>
             <script src="../../assets/js/html5shiv.min.js"></script>
             <script src="../../assets/js/respond.min.js"></script>
-        <![endif]--><meta name="author" content="Odooist">
+        <![endif]--><meta name="description" itemprop="description" content="Conditional upgrades.">
+<meta name="author" content="Odooist">
 <link rel="prev" href="../how-to-set-language-for-controller/" title="How to set language for controller" type="text/html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@odooist">
@@ -42,7 +44,7 @@ og: http://ogp.me/ns#
 </nav><div class="container-fluid main" id="content" role="main">
         <div class="row">
             <nav class="col-xs-12 col-sm-3 menu"><ul>
-<li class="withripple"><a href="http://odooist.com">Back to main site</a></li>
+<li class="withripple"><a href="https://odoopbx.com">Visit OdooPBX.com</a></li>
                 <li class="withripple"><a href="../../archive.html">Archive</a></li>
                 <li class="withripple"><a href="../../categories/">Tags</a></li>
                 <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
@@ -73,7 +75,8 @@ og: http://ogp.me/ns#
                 <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/detect-upgrade-procedure.html">Comments</a>
 
 </span>
-        </div>
+                <meta name="description" itemprop="description" content="Conditional upgrades.">
+</div>
         
         <hr></header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
@@ -82,17 +85,17 @@ og: http://ogp.me/ns#
 <p>But what if we need to have a conditional update? So that we do not update the records if
 some condition is not met.</p>
 <p>To have this done we need to redefine <em>write</em> method for the model and put there the following:</p>
-<pre class="code python"><a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-1"></a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-2"></a>    <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-3"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'install_mode'</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-4"></a>                <span class="s1">'module'</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'your_module_name'</span><span class="p">:</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-5"></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'We are in upgrade procedure!'</span><span class="p">)</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-6"></a>            <span class="c1"># Check a condition</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-7"></a>            <span class="k">if</span> <span class="bp">False</span><span class="p">:</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-8"></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Ignoring updated record.'</span><span class="p">)</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-9"></a>            <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-10"></a>                <span class="nb">super</span><span class="p">(</span><span class="n">MyCustomModel</span><span class="p">,</span> <span class="n">rec</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
-<a name="rest_code_02c2db9eb28b420f9af7372ed6a04a2b-11"></a>    <span class="k">return</span> <span class="bp">True</span>
+<pre class="code python"><a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-1"></a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-2"></a>    <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-3"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'install_mode'</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-4"></a>                <span class="s1">'module'</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'your_module_name'</span><span class="p">:</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-5"></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'We are in upgrade procedure!'</span><span class="p">)</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-6"></a>            <span class="c1"># Check a condition</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-7"></a>            <span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-8"></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Ignoring updated record.'</span><span class="p">)</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-9"></a>            <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-10"></a>                <span class="nb">super</span><span class="p">(</span><span class="n">MyCustomModel</span><span class="p">,</span> <span class="n">rec</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<a name="rest_code_3a20fca625c74136bd6cd83b2fc66b0f-11"></a>    <span class="k">return</span> <span class="kc">True</span>
 </pre>
 </div>
     </div>

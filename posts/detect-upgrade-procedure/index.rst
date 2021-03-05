@@ -4,7 +4,7 @@
 .. tags: xml,upgrade
 .. category: 
 .. link: 
-.. description: 
+.. description: Conditional upgrades.
 .. type: text
 
 In Odoo it is possible to define model records in XML data files.
