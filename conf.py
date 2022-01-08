@@ -141,14 +141,14 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ('https://odoopbx.com', 'Visit OdooPBX.com'),
+        ('https://odooist.com', 'Main'),
         ("/archive.html", "Archive"),
         ("/categories/", "Tags"),
         ("/rss.xml", "RSS feed"),
     ),
 
     "ru": (
-        ('https://odoopbx.com', 'Посетить OdooPBX.com'),
+        ('https://odooist.com', 'Главная'),
         ("/ru/archive.html", "Архив"),
         ("/ru/categories/", "Тэги"),
         ("/ru/rss.xml", "RSS лента"),
